@@ -1,7 +1,8 @@
 import { TaskAction, TasksActionTypes } from "../../types/tasksTypes";
 
-export const removeTask = (indexOfTask: number): TaskAction => ({
+export const removeTask = (indexOfList: number, indexOfTask: number): TaskAction => ({
     type: TasksActionTypes.REMOVE_TASK,
+    indexOfList,
     indexOfTask
 })
 

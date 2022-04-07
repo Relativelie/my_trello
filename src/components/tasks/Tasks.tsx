@@ -8,7 +8,7 @@ import "./Tasks.scss"
 
 export const Tasks = (props: any) => {
 
-    const { nameValidationOff, renameTask } = useActions();
+    const { nameValidationOff, renameTask, removeTask } = useActions();
     const { isCorrectTaskName, newName, indexOfRenamedElem } = useTypedSelector(commonState => commonState.commonReducer);
 
 
@@ -30,7 +30,9 @@ export const Tasks = (props: any) => {
                 <InputField index={[props.listIndex, props.taskIndex]} typeOfElement={"task"} taskValue={props.task} />
             </div>
 
-            <button className="removeButton">x</button>
+            <button
+                className="removeButton"
+                onClick={() => removeTask(props.listIndex, props.taskIndex)}>x</button>
         </div>
     )
 }

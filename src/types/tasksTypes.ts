@@ -12,7 +12,8 @@ export enum TasksActionTypes {
 
 interface removeTask {
     type: TasksActionTypes.REMOVE_TASK,
-    indexOfTask: number,
+    indexOfList: number,
+    indexOfTask: number
 }
 
 interface addTask {

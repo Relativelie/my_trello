@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useActions } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
+import { AddTask } from "../addTask/AddTask";
 
 import { InputField } from "../inputField/InputField";
 
@@ -38,6 +39,7 @@ export const Lists = ({ children, index, list }: any) => {
                     <InputField index={index} typeOfElement={"list"} taskValue={null}/>
                 </div>
                 {children}
+                <AddTask indexOfList={index}/>
             </div>
 
         </div>
