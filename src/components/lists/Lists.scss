@@ -3,16 +3,12 @@
 
 .listsContainer {
     display: flex;
-}
-
-.list {
-    // position: relative
+    justify-content: center;
+    width: 320px;
 }
 
 .listName {
-    display: grid;
-    grid-template-areas: "name";
-    grid-template-columns: 300px;
+    @include inputNames($gridColumns: 300px);
 
 
     & .visibleName {

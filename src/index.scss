@@ -14,3 +14,11 @@ dl,
 dd {
   margin: 0;
 }
+
+body {
+  background-image: url("./components/images/backgroundImage.jpg");
+  background-position: inherit;
+  background-size: cover;
+  background-attachment: fixed;
+  width: min-content;
+}

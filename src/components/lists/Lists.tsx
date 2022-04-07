@@ -30,7 +30,7 @@ export const Lists = ({ children, index, list }: any) => {
     return (
         <div className="listsContainer">
 
-            <div className="list">
+            <div>
                 <div className="listName">
                     <div className="visibleName">
                         <p>{list}, {index}</p>

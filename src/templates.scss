@@ -4,3 +4,10 @@ $fontSizeListName: 20px;
 $listsBackground: rgba(255, 255, 255, 0.603);
 $tasksCardWidth: 230px;
 $borderRadius: 7px;
+
+
+@mixin inputNames($gridColumns) {
+    display: grid;
+    grid-template-areas: "name";
+    grid-template-columns: $gridColumns;
+}

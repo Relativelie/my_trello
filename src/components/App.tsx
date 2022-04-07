@@ -4,6 +4,8 @@ import { AddList } from "./addList/AddList";
 import { Lists } from "./lists/Lists";
 import { Tasks } from "./tasks/Tasks";
 
+import "./App.scss";
+
 
 export default function App() {
 
@@ -15,13 +17,16 @@ export default function App() {
     return (
         <div>
             <AddList />
-                {lists.map((list: any, listIndex: any) =>
+            <div  className="listsBlock">
+            {lists.map((list: any, listIndex: any) =>
                     <Lists key={listIndex} list={list} index={listIndex}>
                         {Children.map(tasks[listIndex], (child, taskIndex) =>
                             <Tasks listIndex={listIndex} taskIndex={taskIndex} task={child}/>
                         )}
                     </Lists>
                     )}
+            </div>
+
         </div>
     )
 }

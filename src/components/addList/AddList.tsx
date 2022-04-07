@@ -1,15 +1,14 @@
-import { useEffect } from "react"
 import { useActions } from "../../hooks/useActions";
-import { useTypedSelector } from "../../hooks/useTypedSelector";
+
+import "./AddList.scss";
 
 
 export const AddList = () => {
     const { addNewList } = useActions();
-    const { lists } = useTypedSelector(state => state.listOfTasksReducer);
 
 
     return (
-        <div>
+        <div className="addListButtonContainer">
             <button onClick={() => addNewList()}>Add another list</button>
         </div>
     )

@@ -3,8 +3,10 @@
 .inputContainer {
     grid-area: name;
 
+
     & .inputName {
-        width: 100%
+        width: 100%;
+        cursor: pointer;
     }
 }
 
