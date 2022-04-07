@@ -1,0 +1,30 @@
+@import "../../templates";
+
+
+.listsContainer {
+    display: flex;
+}
+
+.list {
+    // position: relative
+}
+
+.listName {
+    display: grid;
+    grid-template-areas: "name";
+    grid-template-columns: 300px;
+
+
+    & .visibleName {
+        grid-area: name;
+        z-index: 0
+
+        & p {
+            font-size: 18px;
+            margin: 12px;
+            font-family: $fontText;
+        }
+    }
+
+}
+

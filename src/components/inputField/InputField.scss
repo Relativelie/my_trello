@@ -1,0 +1,14 @@
+@import "../../templates";
+
+.inputContainer {
+    grid-area: name;
+
+    & .inputName {
+        width: 100%
+    }
+}
+
+
+.hideInput {
+    // opacity: 0;
+}
