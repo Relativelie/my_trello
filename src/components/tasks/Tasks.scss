@@ -13,8 +13,14 @@
     & .visibleName {
         grid-area: name;
     }
+
+    .visibleName p {
+        font-size: $tasksTextSize;
+        font-family: $fontText;
+        color: $textColor
+    }
 }
 
-.removeButton {
-    cursor: pointer
+.removeTask {
+    @include removeButton($bgColor: rgba(205, 205, 205, 0.793))
 }

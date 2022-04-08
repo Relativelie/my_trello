@@ -10,7 +10,7 @@ export const renameList = (name: string, index: number): ListOfTasksAction => ({
     index
 })
 
-export const archiveList = (indexOfList: number) => ({
-    type: ListOfTasksActionTypes.ARCHIVE_LIST,
+export const removeList = (indexOfList: number) => ({
+    type: ListOfTasksActionTypes.REMOVE_LIST,
     indexOfList
 })

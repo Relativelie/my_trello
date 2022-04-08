@@ -1,7 +1,7 @@
 import { TasksState, TaskAction, TasksActionTypes } from "../../types/tasksTypes";
 
 const initialState: TasksState = {
-    tasks: [[0, "jsj"], [3333344455, "333333"]]
+    tasks: []
 }
 
 export const tasksReducer = (state = initialState, action: TaskAction): TasksState => {
@@ -9,8 +9,18 @@ export const tasksReducer = (state = initialState, action: TaskAction): TasksSta
         case TasksActionTypes.ADD_NEW_TASK:
             if (action.name != null && action.name.trim().length !== 0) {
                 const tasksCopy = state.tasks;
-                tasksCopy[action.indexOfList].push(action.name);
-                console.log("tasksCopy", tasksCopy)
+                if (tasksCopy[action.indexOfList] !== undefined) {
+                    tasksCopy[action.indexOfList].push(action.name);
+                }
+                else {
+                    let listsNumber = action.indexOfList + 1 - tasksCopy.length;
+                    while (listsNumber != 0) {
+                        console.log(listsNumber, listsNumber)
+                        tasksCopy.push([]);
+                        listsNumber -= 1
+                    }
+                    tasksCopy[action.indexOfList].push(action.name);
+                }
                 return {
                     ...state,
                     tasks: tasksCopy
@@ -26,10 +36,10 @@ export const tasksReducer = (state = initialState, action: TaskAction): TasksSta
             const copy = state.tasks;
             copy[action.indexOfList][action.indexOfTask] = action.value;
             return {
-                ...state, 
+                ...state,
                 tasks: copy
             }
-        
+
         case TasksActionTypes.REMOVE_TASK:
             const allTasks = state.tasks;
             const listTasks = state.tasks[action.indexOfList];
@@ -39,7 +49,15 @@ export const tasksReducer = (state = initialState, action: TaskAction): TasksSta
                 ...state,
                 tasks: allTasks
             }
-            
+
+        case TasksActionTypes.REMOVE_ALL_TASKS_FROM_LIST:
+            const tasksCopy = state.tasks;
+            tasksCopy.splice(action.indexOfList, 1);
+            return {
+                ...state,
+                tasks: tasksCopy
+            }
+
         default:
             return state
     }

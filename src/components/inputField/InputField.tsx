@@ -41,7 +41,7 @@ export const InputField: FC<Props> = ({ index, typeOfElement, taskValue }) => {
                 data-elemkey={index}
                 className={`inputName hideInput`}
                 type="text"
-                maxLength={34}
+                maxLength={44}
                 onKeyPress={(blurEvent) => { validateInputValue(blurEvent) }}
                 onBlur={(blurEvent) => { validateInputValue(blurEvent) }}
                 value={currentName}

@@ -18,7 +18,6 @@ export const listOfTasksReducer = (state = initialState, action: ListOfTasksActi
             }
 
         case ListOfTasksActionTypes.RENAME_LIST:
-            
             const allLists = state.lists;
             allLists[action.index] = action.name
             return {
@@ -26,6 +25,13 @@ export const listOfTasksReducer = (state = initialState, action: ListOfTasksActi
                 lists: allLists
             }
         
+        case ListOfTasksActionTypes.REMOVE_LIST:
+            const copy = state.lists;
+            copy.splice(action.indexOfList, 1)
+            return {
+                ...state,
+                lists: copy
+            }
 
 
         default:

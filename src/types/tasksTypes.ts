@@ -7,6 +7,7 @@ export enum TasksActionTypes {
     RENAME_TASK = "RENAME_TASK",
     REMOVE_TASK = "REMOVE_TASK",
     ADD_NEW_TASK = "ADD_NEW_TASK",
+    REMOVE_ALL_TASKS_FROM_LIST = "REMOVE_ALL_TASKS_FROM_LIST"
 
 }
 
@@ -29,10 +30,15 @@ interface renameTask {
     value: string
 }
 
+interface removeAllTasksFromList {
+    type: TasksActionTypes.REMOVE_ALL_TASKS_FROM_LIST,
+    indexOfList: number
+}
 
 
 export type TaskAction =
     removeTask
     | addTask
     | renameTask
+    | removeAllTasksFromList
 

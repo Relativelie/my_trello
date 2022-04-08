@@ -1,0 +1,31 @@
+@import "../../templates";
+
+
+.addTaskContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & input {
+        width: 200px;
+        padding: 3px;
+        font-size: $tasksTextSize;
+        font-family: $fontText;
+    }
+
+    & button {
+        padding: 5px;
+        border: none;
+        border-radius: 10px;
+        text-shadow: 0 1px 5px rgb(255, 255, 255);
+        font-size: $tasksTextSize;
+        font-family: $fontText;
+        background-color: rgb(157, 209, 255);
+        cursor: pointer;
+    
+        &:hover {
+            box-shadow: 0 1px 10px rgba(255, 255, 255, 0.606);
+            background-color: rgb(80, 168, 246);
+        }
+    }
+}

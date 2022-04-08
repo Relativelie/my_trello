@@ -16,7 +16,6 @@ import "./Lists.scss"
 export const Lists = ({ children, index, list }: any) => {
 
     const { nameValidationOff, renameList } = useActions();
-    const { lists } = useTypedSelector(state => state.listOfTasksReducer);
     const { isCorrectListName, newName, indexOfRenamedElem } = useTypedSelector(commonState => commonState.commonReducer);
 
     useEffect(() => {
@@ -32,14 +31,18 @@ export const Lists = ({ children, index, list }: any) => {
         <div className="listsContainer">
 
             <div>
-                <div className="listName">
-                    <div className="visibleName">
-                        <p>{list}, {index}</p>
+                <div className="listNameContainer">
+                    <div className="listName">
+                        <div className="visibleName">
+                            <p>{list}</p>
+                        </div>
+                        <InputField index={index} typeOfElement={"list"} taskValue={null} />
                     </div>
-                    <InputField index={index} typeOfElement={"list"} taskValue={null}/>
+                    <button className="removeList">x</button>
                 </div>
+
                 {children}
-                <AddTask indexOfList={index}/>
+                <AddTask indexOfList={index} />
             </div>
 
         </div>

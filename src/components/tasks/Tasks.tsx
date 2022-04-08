@@ -31,7 +31,7 @@ export const Tasks = (props: any) => {
             </div>
 
             <button
-                className="removeButton"
+                className="removeTask"
                 onClick={() => removeTask(props.listIndex, props.taskIndex)}>x</button>
         </div>
     )

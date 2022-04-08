@@ -4,23 +4,36 @@
 .listsContainer {
     display: flex;
     justify-content: center;
-    width: 320px;
+    width: 300px;
+    margin: 0 10px;
+}
+
+
+.listNameContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
 }
 
 .listName {
-    @include inputNames($gridColumns: 300px);
+    @include inputNames($gridColumns: 260px);
+
 
 
     & .visibleName {
         grid-area: name;
-        z-index: 0
-
-        & p {
-            font-size: 18px;
-            margin: 12px;
-            font-family: $fontText;
-        }
     }
 
+    ;
+
+    .visibleName p {
+        font-size: $listTextSize;
+        font-family: $fontText;
+        color: $textColor
+    }
 }
 
+.removeList {
+    @include removeButton($bgColor: rgba(253, 161, 161, 0.624))
+}

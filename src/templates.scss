@@ -1,9 +1,11 @@
-$fontPlannerName: 'The Nautigal', cursive;
 $fontText: 'Roboto', sans-serif;
 $fontSizeListName: 20px;
 $listsBackground: rgba(255, 255, 255, 0.603);
 $tasksCardWidth: 230px;
 $borderRadius: 7px;
+$textColor: rgb(255, 255, 255);
+$listTextSize: clamp(15px, 2vw, 18px);
+$tasksTextSize: clamp(13px, 2vw, 15px);
 
 
 @mixin inputNames($gridColumns) {
@@ -11,3 +13,20 @@ $borderRadius: 7px;
     grid-template-areas: "name";
     grid-template-columns: $gridColumns;
 }
+
+
+@mixin removeButton($bgColor) {
+    width: 25px;
+    height: 25px;
+    border-radius: 45%;
+    border: 1px solid rgba(255, 255, 255, 0.566);
+    color: $textColor;
+    background-color: $bgColor;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0 1px 10px rgba(255, 255, 255, 0.339);
+        background-color: rgb(253, 52, 52);
+    }
+}
+

@@ -2,6 +2,8 @@ import { useRef } from "react";
 import { FC } from "react"
 import { useActions } from "../../hooks/useActions";
 
+import "./AddTask.scss"
+
 interface Props {
     indexOfList: number
 }
@@ -21,7 +23,7 @@ const taskAdding = (e: any) => {
 
 
     return (
-        <div>
+        <div className="addTaskContainer">
             <input
             type="text"
             maxLength={34}

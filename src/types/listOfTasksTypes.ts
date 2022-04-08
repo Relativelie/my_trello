@@ -6,8 +6,7 @@ export interface ListOfTasksState {
 export enum ListOfTasksActionTypes {
     ADD_NEW_LIST = "ADD_NEW_LIST",
     RENAME_LIST = "RENAME_LIST",
-    DELETE_LIST = "DELETE_LIST",
-    ARCHIVE_LIST = "ARCHIVE_LIST"
+    REMOVE_LIST = "REMOVE_LIST",
 }
 
 interface addNewList {
@@ -20,11 +19,12 @@ interface renameList {
     index: number
 }
 
-interface archiveList {
-    type: ListOfTasksActionTypes.ARCHIVE_LIST,
+interface removeList {
+    type: ListOfTasksActionTypes.REMOVE_LIST,
     indexOfList: number
 }
 
 export type ListOfTasksAction =
     addNewList
     | renameList
+    | removeList
