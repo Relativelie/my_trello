@@ -1,13 +1,13 @@
 import { combineReducers } from "redux";
 
 import { listOfTasksReducer } from "./listOfTasksReducer";
-import {commonReducer} from "./commonReducer";
+import {inputFieldReducer} from "./inputFieldReducer";
 import {tasksReducer} from "./tasksReducer";
 
 
 export const reducers = {
     listOfTasksReducer,
-    commonReducer,
+    inputFieldReducer,
     tasksReducer
 };
 

@@ -19,7 +19,7 @@ interface Props {
 export const Lists: FC<Props> = ({ children, index, list }) => {
 
     const { nameValidationOff, renameList, removeList, removeAllTasksFromList } = useActions();
-    const { isCorrectListName, newName, indexOfRenamedElem } = useTypedSelector(commonState => commonState.commonReducer);
+    const { isCorrectListName, newName, indexOfRenamedElem } = useTypedSelector(inputFieldState => inputFieldState.inputFieldReducer);
 
     useEffect(() => {
         if (isCorrectListName && newName != null && indexOfRenamedElem != []) {
@@ -45,7 +45,7 @@ export const Lists: FC<Props> = ({ children, index, list }) => {
                                 <div className="visibleName">
                                     <p>{list}</p>
                                 </div>
-                                <InputField index={index} typeOfElement={"list"} taskValue={null} />
+                                <InputField index={index} typeOfElement={"list"} taskValue={""} />
                             </div>
                             <button
                                 className="removeList"

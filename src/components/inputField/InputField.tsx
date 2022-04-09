@@ -16,7 +16,7 @@ export const InputField: FC<Props> = ({ index, typeOfElement, taskValue }) => {
 
     const { nameValidationOn, showCurrentValueInInput, inputValue } = useActions();
     const { lists } = useTypedSelector(state => state.listOfTasksReducer);
-    const { currentName } = useTypedSelector(commonState => commonState.commonReducer);
+    const { currentName } = useTypedSelector(inputFieldState => inputFieldState.inputFieldReducer);
 
 
     const validateInputValue = (eventType: string, blurEvent: SyntheticEvent<EventTarget>) => {

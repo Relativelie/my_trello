@@ -18,7 +18,7 @@ interface Props {
 export const Tasks: FC<Props> = ({ taskIndex, listIndex, task }) => {
 
     const { nameValidationOff, renameTask, removeTask } = useActions();
-    const { isCorrectTaskName, newName, indexOfRenamedElem } = useTypedSelector(commonState => commonState.commonReducer);
+    const { isCorrectTaskName, newName, indexOfRenamedElem } = useTypedSelector(inputFieldState => inputFieldState.inputFieldReducer);
 
 
     useEffect(() => {

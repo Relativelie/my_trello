@@ -1,10 +1,10 @@
 import * as listOfTasksActionCreators from './listOfTasksActions';
-import * as commonActionCreators from './commonActions';
+import * as inputFieldCreators from './inputFieldActions';
 import * as tasksActionCreators from './tasksActions';
 
 
 export default {
     ...listOfTasksActionCreators,
-    ...commonActionCreators,
+    ...inputFieldCreators,
     ...tasksActionCreators
 }
