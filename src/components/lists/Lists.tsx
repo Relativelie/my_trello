@@ -1,21 +1,24 @@
-import { useEffect } from "react"
+import { FC, useEffect } from "react";
+import { Draggable, Droppable } from "react-beautiful-dnd";
+
 import { useActions } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
-import { AddTask } from "../addTask/AddTask";
 
+import { AddTask } from "../addTask/AddTask";
 import { InputField } from "../inputField/InputField";
 
-import "./Lists.scss"
+import "./Lists.scss";
 
 
-// interface Props {
-//     tasks: any
-// }
+interface Props {
+    index: number,
+    list: number
+}
 
 
-export const Lists = ({ children, index, list }: any) => {
+export const Lists: FC<Props> = ({ children, index, list }) => {
 
-    const { nameValidationOff, renameList } = useActions();
+    const { nameValidationOff, renameList, removeList, removeAllTasksFromList } = useActions();
     const { isCorrectListName, newName, indexOfRenamedElem } = useTypedSelector(commonState => commonState.commonReducer);
 
     useEffect(() => {
@@ -26,26 +29,45 @@ export const Lists = ({ children, index, list }: any) => {
     }, [isCorrectListName])
 
 
+    const removeListWithTasks = (index: number) => {
+        removeList(index);
+        removeAllTasksFromList(index);
+    }
+
 
     return (
-        <div className="listsContainer">
-
-            <div>
-                <div className="listNameContainer">
-                    <div className="listName">
-                        <div className="visibleName">
-                            <p>{list}</p>
+        <Draggable draggableId={`listBeing-${index}`} index={index}>
+            {(provided) => (
+                <div className="listsContainer"  {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef} >
+                    <div>
+                        <div className="listNameContainer">
+                            <div className="listName">
+                                <div className="visibleName">
+                                    <p>{list}</p>
+                                </div>
+                                <InputField index={index} typeOfElement={"list"} taskValue={null} />
+                            </div>
+                            <button
+                                className="removeList"
+                                onClick={() => { removeListWithTasks(index) }}>x</button>
                         </div>
-                        <InputField index={index} typeOfElement={"list"} taskValue={null} />
+                        <AddTask indexOfList={index} />
+                        <Droppable droppableId={`listArea-${index}`} type="tasks">
+                            {(provided) => (
+                                <div
+                                    className="dropppableTasksBlock"
+                                    {...provided.droppableProps}
+                                    ref={provided.innerRef}
+                                >
+                                    {children}
+                                    {provided.placeholder}
+                                </div>
+                            )}
+                        </Droppable>
                     </div>
-                    <button className="removeList">x</button>
                 </div>
-
-                {children}
-                <AddTask indexOfList={index} />
-            </div>
-
-        </div>
+            )}
+        </Draggable>
     )
 }
 

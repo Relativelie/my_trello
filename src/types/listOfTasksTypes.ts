@@ -1,5 +1,5 @@
 export interface ListOfTasksState {
-    lists: any,
+    lists: Array<string>,
     isOpenEditListName: boolean
 }
 
@@ -7,6 +7,7 @@ export enum ListOfTasksActionTypes {
     ADD_NEW_LIST = "ADD_NEW_LIST",
     RENAME_LIST = "RENAME_LIST",
     REMOVE_LIST = "REMOVE_LIST",
+    DRAG_DROP_LIST = "DRAG_DROP_LIST"
 }
 
 interface addNewList {
@@ -24,7 +25,13 @@ interface removeList {
     indexOfList: number
 }
 
+interface dragDropList {
+    type: ListOfTasksActionTypes.DRAG_DROP_LIST,
+    indexTo: number,
+    indexFrom: number
+}
 export type ListOfTasksAction =
     addNewList
     | renameList
     | removeList
+    | dragDropList

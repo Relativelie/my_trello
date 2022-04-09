@@ -4,10 +4,12 @@
 .listsContainer {
     display: flex;
     justify-content: center;
-    width: 300px;
+    width: 330px;
+    padding: 10px;
     margin: 0 10px;
+    border: 1px solid rgba(255, 255, 255, 0.769);
+    background-color: rgba(0, 0, 0, 0.229);
 }
-
 
 .listNameContainer {
     display: flex;
@@ -17,15 +19,11 @@
 }
 
 .listName {
-    @include inputNames($gridColumns: 260px);
-
-
+    @include inputNames($gridColumns: 300px);
 
     & .visibleName {
         grid-area: name;
     }
-
-    ;
 
     .visibleName p {
         font-size: $listTextSize;
@@ -35,5 +33,11 @@
 }
 
 .removeList {
-    @include removeButton($bgColor: rgba(253, 161, 161, 0.624))
+    @include optionBtn($bgColor: rgba(253, 161, 161, 0.624),
+        $bgColorHover: rgb(253, 52, 52))
+}
+
+.dropppableTasksBlock {
+    height: 90%;
+    overflow: scroll
 }

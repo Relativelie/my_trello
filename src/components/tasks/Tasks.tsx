@@ -1,12 +1,21 @@
-import { useEffect } from "react"
+import { FC, useEffect } from "react";
+import { Draggable } from "react-beautiful-dnd";
+
 import { useActions } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
+
 import { InputField } from "../inputField/InputField";
 
-import "./Tasks.scss"
+import "./Tasks.scss";
 
 
-export const Tasks = (props: any) => {
+interface Props {
+    taskIndex: number,
+    listIndex: number,
+    task: string
+}
+
+export const Tasks: FC<Props> = ({ taskIndex, listIndex, task }) => {
 
     const { nameValidationOff, renameTask, removeTask } = useActions();
     const { isCorrectTaskName, newName, indexOfRenamedElem } = useTypedSelector(commonState => commonState.commonReducer);
@@ -21,19 +30,26 @@ export const Tasks = (props: any) => {
 
 
     return (
-        <div className="taskContainer">
-            <div className="taskName" data-taskindex={props.taskIndex}>
-                <div className="visibleName">
-                    <p>{props.task}</p>
+        <Draggable draggableId={`task-${taskIndex}-${listIndex}`} index={taskIndex}>
+            {(provided) => (
+                <div className="taskContainer" {...provided.draggableProps} ref={provided.innerRef}>
+                    <div className="taskName" data-taskindex={taskIndex}>
+                        <div className="visibleName">
+                            <p>{task}</p>
+                        </div>
+
+                        <InputField index={[listIndex, taskIndex]} typeOfElement={"task"} taskValue={task} />
+                    </div>
+                    <span
+                        {...provided.dragHandleProps}
+                        className="draggingBtn"
+                    ></span>
+                    <button
+                        className="removeTaskBtn"
+                        onClick={() => removeTask(listIndex, taskIndex)}>x</button>
                 </div>
-
-                <InputField index={[props.listIndex, props.taskIndex]} typeOfElement={"task"} taskValue={props.task} />
-            </div>
-
-            <button
-                className="removeTask"
-                onClick={() => removeTask(props.listIndex, props.taskIndex)}>x</button>
-        </div>
+            )}
+        </Draggable>
     )
 }
 

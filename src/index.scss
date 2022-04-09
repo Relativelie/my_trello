@@ -16,9 +16,10 @@ dd {
 }
 
 body {
-  background-image: url("./components/images/backgroundImage.jpg");
+  width: min-content;
+  height: 100vh;
+  background-attachment: fixed;
   background-position: inherit;
   background-size: cover;
-  background-attachment: fixed;
-  width: min-content;
+  background-image: url("./images/backgroundImage.jpg");
 }

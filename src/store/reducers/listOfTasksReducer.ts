@@ -2,9 +2,10 @@ import { ListOfTasksAction, ListOfTasksActionTypes, ListOfTasksState } from "../
 
 
 const initialState: ListOfTasksState = {
-    lists: [["Write the name of the project"]],
+    lists: ["Write the name of the project"],
     isOpenEditListName: false
 };
+
 
 export const listOfTasksReducer = (state = initialState, action: ListOfTasksAction): ListOfTasksState => {
     switch (action.type) {
@@ -13,7 +14,7 @@ export const listOfTasksReducer = (state = initialState, action: ListOfTasksActi
                 ...state,
                 lists: [
                     ...state.lists,
-                    ["Write the name of the project"]
+                    "Write the name of the project"
                 ]
             }
 
@@ -33,7 +34,15 @@ export const listOfTasksReducer = (state = initialState, action: ListOfTasksActi
                 lists: copy
             }
 
+            case ListOfTasksActionTypes.DRAG_DROP_LIST: 
+            const copyState = state.lists;
+            const draggingList = (copyState.splice(action.indexFrom, 1)).toString();
+            copyState.splice(action.indexTo, 0, draggingList);
+                return {
+                    ...state,
+                    lists: copyState
 
+                }
         default:
             return state
     }

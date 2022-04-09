@@ -1,5 +1,6 @@
 import { CommonAction, CommonActionTypes, CommonState } from "../../types/commonTypes";
 
+
 const initialState: CommonState = {
     isCorrectListName: false,
     isCorrectTaskName: false,
@@ -7,7 +8,8 @@ const initialState: CommonState = {
     newName: null,
     indexOfRenamedElem: [],
     currentName: "",
-}
+};
+
 
 export const commonReducer = (state = initialState, action: CommonAction): CommonState => {
     switch (action.type) {

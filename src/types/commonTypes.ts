@@ -3,7 +3,7 @@ export interface CommonState {
     isCorrectTaskName: boolean,
     previousName: string | null,
     newName: string | null,
-    indexOfRenamedElem: Array<any>,
+    indexOfRenamedElem: Array<string>,
     currentName: string,
 }
 
@@ -24,7 +24,7 @@ interface savePreviousName {
 interface nameValidationOn {
     type: CommonActionTypes.TURN_ON_NAME_VALIDATION,
     nameValue: string,
-    index: Array<any>,
+    index: Array<string>,
     typeOfElement: string
 }
 
@@ -35,7 +35,7 @@ interface nameValidationOff {
 
 interface inputValue {
     type: CommonActionTypes.INPUT_VALUE,
-    value: any
+    value: string
 }
 
 interface showCurrentValueInInput {

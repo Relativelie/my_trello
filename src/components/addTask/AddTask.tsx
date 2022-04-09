@@ -1,36 +1,35 @@
-import { useRef } from "react";
-import { FC } from "react"
+import { FC, useRef } from "react";
 import { useActions } from "../../hooks/useActions";
 
-import "./AddTask.scss"
+import "./AddTask.scss";
+
 
 interface Props {
     indexOfList: number
 }
 
-export const AddTask:FC<Props> = ({indexOfList}) => {
+export const AddTask: FC<Props> = ({ indexOfList }) => {
     const { addTask } = useActions();
     const myRef = useRef<HTMLInputElement>(null);
 
 
-const taskAdding = (e: any) => {
-    if ((e.type === "click" || e.code === "Enter") && myRef.current !== null) {
-        addTask(myRef.current.value, indexOfList);
-        myRef.current.value = ""
+    const taskAdding = (e: string) => {
+        if ((e === "click" || e === "Enter") && myRef.current !== null) {
+            addTask(myRef.current.value, indexOfList);
+            myRef.current.value = "";
+        }
     }
-
-}
 
 
     return (
         <div className="addTaskContainer">
             <input
-            type="text"
-            maxLength={34}
-            onKeyPress={(e) => { taskAdding(e) }}
-            ref={myRef}
+                type="text"
+                maxLength={34}
+                onKeyPress={(e) => { taskAdding(e.code) }}
+                ref={myRef}
             ></input>
-            <button onClick={(e)=> {taskAdding(e)}}>Add task</button>
+            <button onClick={(e) => { taskAdding(e.type) }}>Add task</button>
         </div>
     )
 }

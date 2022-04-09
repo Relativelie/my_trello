@@ -1,8 +1,10 @@
 import { TasksState, TaskAction, TasksActionTypes } from "../../types/tasksTypes";
 
+
 const initialState: TasksState = {
     tasks: []
 }
+
 
 export const tasksReducer = (state = initialState, action: TaskAction): TasksState => {
     switch (action.type) {
@@ -14,8 +16,7 @@ export const tasksReducer = (state = initialState, action: TaskAction): TasksSta
                 }
                 else {
                     let listsNumber = action.indexOfList + 1 - tasksCopy.length;
-                    while (listsNumber != 0) {
-                        console.log(listsNumber, listsNumber)
+                    while (listsNumber !== 0) {
                         tasksCopy.push([]);
                         listsNumber -= 1
                     }
@@ -56,6 +57,44 @@ export const tasksReducer = (state = initialState, action: TaskAction): TasksSta
             return {
                 ...state,
                 tasks: tasksCopy
+            }
+
+        case TasksActionTypes.DRAG_DROP_LIST_WITH_TASK:
+            const tasksC = state.tasks;
+            const draggingList = tasksC.splice(action.indexFrom, 1);
+            tasksC.splice(action.indexTo, 0, draggingList);
+            return {
+                ...state,
+                tasks: tasksC
+            }
+
+        case TasksActionTypes.DRAG_DROP_TASKS:
+            const listFrom = state.tasks[action.listFrom];
+            const copyOfTasks = state.tasks;
+            if (state.tasks[action.listTo] === undefined) {
+                let numberOfLists = action.listTo + 1 - state.tasks.length;
+                while (numberOfLists !== 0) {
+                    copyOfTasks.push([]);
+                    numberOfLists -= 1
+                }
+            }
+            const listTo = copyOfTasks[action.listTo];
+            const draggingTask = listFrom.splice(action.indexFrom, 1);
+            listTo.splice(action.indexTo, 0, draggingTask);
+
+            copyOfTasks[action.listFrom] = listFrom;
+            copyOfTasks[action.listTo] = listTo;
+            return {
+                ...state,
+                tasks: copyOfTasks
+            }
+
+        case TasksActionTypes.REMOVE_ALL_TASKS_FROM_LIST:
+            const copyTasks = state.tasks;
+            copyTasks.splice(action.indexOfList, 1);
+            return {
+                ...state,
+                tasks: copyTasks
             }
 
         default:
