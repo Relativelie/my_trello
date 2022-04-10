@@ -23,15 +23,19 @@
   "scripts": {
     "start": "webpack serve --config webpack.dev.config.ts",
     "test": "jest",
+    "build": "webpack --config webpack.dev.config.ts",
     "test:coverage": "COVERAGE=coverage jest",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
     ]
+  },
+  "browser": {
+    "[module-name]": false
   },
   "browserslist": {
     "production": [
@@ -62,6 +66,7 @@
     "eslint": "^8.12.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.4.0",
+    "gh-pages": "^3.2.3",
     "html-webpack-plugin": "^5.5.0",
     "sass": "^1.49.11",
     "sass-loader": "^12.6.0",
