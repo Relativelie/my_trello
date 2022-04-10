@@ -41,7 +41,6 @@ describe("list of tasks reducer - drag and drop list", () => {
     test("drop from > to", () => {
         const to = 4;
         const from = 2;
-        console.log(fiveListState)
         const newState = listOfTasksReducer(fiveListState,
             dragDropList(to, from));
         expect(newState).toStrictEqual({

@@ -20,7 +20,6 @@ export const InputField: FC<Props> = ({ index, typeOfElement, taskValue }) => {
 
 
     const validateInputValue = (eventType: string, blurEvent: SyntheticEvent<EventTarget>) => {
-        console.log(blurEvent)
         if (!(blurEvent.target instanceof EventTarget)) {
             return;
         }
