@@ -61,7 +61,7 @@ export const tasksReducer = (state = initialState, action: TaskAction): TasksSta
 
         case TasksActionTypes.DRAG_DROP_LIST_WITH_TASK:
             const tasksC = state.tasks;
-            const draggingList = tasksC.splice(action.indexFrom, 1);
+            const draggingList = tasksC.splice(action.indexFrom, 1)[0];
             tasksC.splice(action.indexTo, 0, draggingList);
             return {
                 ...state,
@@ -79,7 +79,7 @@ export const tasksReducer = (state = initialState, action: TaskAction): TasksSta
                 }
             }
             const listTo = copyOfTasks[action.listTo];
-            const draggingTask = listFrom.splice(action.indexFrom, 1);
+            const draggingTask = listFrom.splice(action.indexFrom, 1)[0];
             listTo.splice(action.indexTo, 0, draggingTask);
 
             copyOfTasks[action.listFrom] = listFrom;

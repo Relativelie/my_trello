@@ -1,4 +1,4 @@
-import { inputValue, nameValidationOff, nameValidationOn, showCurrentValueInInput } from "../../src/store/actions/inputFieldActions";
+import { nameValidationOff, nameValidationOn, showCurrentValueInInput } from "../../src/store/actions/inputFieldActions";
 import { InputFieldActionTypes } from "../../src/types/inputFieldTypes";
 
 
@@ -21,14 +21,6 @@ describe("input field actions", () => {
         expect(nameValidationOff(type)).toEqual({
             type: InputFieldActionTypes.TURN_OFF_NAME_VALIDATION,
             typeOfElement: type
-        })
-    });
-
-    test("action to input value in field", () => {
-        const value = "value";
-        expect(inputValue(value)).toEqual({
-            type: InputFieldActionTypes.INPUT_VALUE,
-            value
         })
     });
 

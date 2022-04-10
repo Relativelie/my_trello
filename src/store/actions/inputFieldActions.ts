@@ -13,11 +13,6 @@ export const nameValidationOff = (typeOfElement: string): InputFieldAction => ({
     typeOfElement
 });
 
-export const inputValue = (value: string): InputFieldAction => ({
-    type: InputFieldActionTypes.INPUT_VALUE,
-    value
-});
-
 export const showCurrentValueInInput = (value: string): InputFieldAction=> ({
     type: InputFieldActionTypes.SHOW_CURRENT_VALUE_IN_INPUT,
     value

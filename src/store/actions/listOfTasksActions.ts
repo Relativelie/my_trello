@@ -11,7 +11,7 @@ export const renameList = (name: string, index: number): ListOfTasksAction => ({
     index
 });
 
-export const removeList = (indexOfList: number) => ({
+export const removeList = (indexOfList: number): ListOfTasksAction => ({
     type: ListOfTasksActionTypes.REMOVE_LIST,
     indexOfList
 });

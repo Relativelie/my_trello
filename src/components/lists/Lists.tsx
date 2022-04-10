@@ -12,7 +12,7 @@ import "./Lists.scss";
 
 interface Props {
     index: number,
-    list: number
+    list: string
 }
 
 

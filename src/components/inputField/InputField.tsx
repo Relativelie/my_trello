@@ -14,7 +14,7 @@ interface Props {
 
 export const InputField: FC<Props> = ({ index, typeOfElement, taskValue }) => {
 
-    const { nameValidationOn, showCurrentValueInInput, inputValue } = useActions();
+    const { nameValidationOn, showCurrentValueInInput } = useActions();
     const { lists } = useTypedSelector(state => state.listOfTasksReducer);
     const { currentName } = useTypedSelector(inputFieldState => inputFieldState.inputFieldReducer);
 
@@ -60,7 +60,7 @@ export const InputField: FC<Props> = ({ index, typeOfElement, taskValue }) => {
                 onKeyPress={(blurEvent) => { validateInputValue(blurEvent.key, blurEvent) }}
                 onBlur={(blurEvent) => { validateInputValue(blurEvent.type, blurEvent) }}
                 value={currentName}
-                onChange={(e) => inputValue(e.target.value)}
+                onChange={(e) => showCurrentValueInInput(e.target.value)}
                 onFocus={(e) => showInput(e)}
             ></input>
         </div>

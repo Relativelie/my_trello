@@ -1,6 +1,5 @@
 export interface ListOfTasksState {
-    lists: Array<string>,
-    isOpenEditListName: boolean
+    lists: Array<string>
 }
 
 export enum ListOfTasksActionTypes {

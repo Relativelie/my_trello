@@ -19,7 +19,7 @@ export default function App() {
     const { tasks } = useTypedSelector(tasksState => tasksState.tasksReducer);
 
     const handleOnDragEnd = (e: DropResult) => {
-        if (e.destination !== undefined) {
+        if (e.destination !== undefined && e.destination !== null) {
             const indexTo = e.destination.index;
             const indexFrom = e.source.index;
             if (e.type === "lists") {
@@ -47,7 +47,7 @@ export default function App() {
                     {(provided) => (
                         <div {...provided.droppableProps} ref={provided.innerRef}>
                             <div className="listsBlock">
-                                {lists.map((list: number, listIndex: number) =>
+                                {lists.map((list: string, listIndex: number) =>
                                     <Lists key={listIndex} list={list} index={listIndex}>
                                         {Children.map(tasks[listIndex], (child, taskIndex) =>
                                             <Tasks listIndex={listIndex} taskIndex={taskIndex} task={child} />

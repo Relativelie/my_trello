@@ -16,7 +16,7 @@ export const inputFieldReducer = (state = initialState, action: InputFieldAction
             const currentName = action.nameValue.trim();
             const checkToCorrect = currentName !== "" ? true : false;
             const newNameValue = checkToCorrect ? currentName : "";
-            if(checkToCorrect == false ) {
+            if(checkToCorrect === false ) {
                 return {
                     ...state
                 }
@@ -25,7 +25,6 @@ export const inputFieldReducer = (state = initialState, action: InputFieldAction
                 if (action.typeOfElement === "list") {
                     return {
                         ...state,
-                        ...state,
                         isCorrectListName: true,
                         newName: newNameValue,
                         indexOfRenamedElem: action.index
@@ -33,7 +32,6 @@ export const inputFieldReducer = (state = initialState, action: InputFieldAction
                 }
                 else {
                     return {
-                        ...state,
                         ...state,
                         isCorrectTaskName: true,
                         newName: newNameValue,
@@ -50,9 +48,10 @@ export const inputFieldReducer = (state = initialState, action: InputFieldAction
                     currentName: "",
                     isCorrectTaskName: false,
                     indexOfRenamedElem: [],
+                    newName: null
                 }
             }
-            else {
+            else if (action.typeOfElement=== "list") {
                 return {
                     ...state,
                     currentName: "",
@@ -62,10 +61,10 @@ export const inputFieldReducer = (state = initialState, action: InputFieldAction
                 }
             }
 
-        case InputFieldActionTypes.INPUT_VALUE:
-            return {
-                ...state,
-                currentName: action.value
+            else {
+                return {
+                    ...state
+                }
             }
         
         case InputFieldActionTypes.SHOW_CURRENT_VALUE_IN_INPUT:
