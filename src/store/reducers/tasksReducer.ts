@@ -20,7 +20,7 @@ export const tasksReducer = (state = initialState, action: TaskAction): TasksSta
                         tasksCopy.push([]);
                         listsNumber -= 1
                     }
-                    tasksCopy[action.indexOfList].push(action.name);
+                    tasksCopy[action.indexOfList].push(action.name.trim());
                 }
                 return {
                     ...state,
@@ -35,7 +35,7 @@ export const tasksReducer = (state = initialState, action: TaskAction): TasksSta
 
         case TasksActionTypes.RENAME_TASK:
             const copy = state.tasks;
-            copy[action.indexOfList][action.indexOfTask] = action.value;
+            copy[action.indexOfList][action.indexOfTask] = action.value.trim();
             return {
                 ...state,
                 tasks: copy
@@ -44,8 +44,10 @@ export const tasksReducer = (state = initialState, action: TaskAction): TasksSta
         case TasksActionTypes.REMOVE_TASK:
             const allTasks = state.tasks;
             const listTasks = state.tasks[action.indexOfList];
-            listTasks.splice(action.indexOfTask, 1);
-            allTasks[action.indexOfList] = listTasks;
+            if (action.indexOfTask >= 0) {
+                listTasks.splice(action.indexOfTask, 1);
+                allTasks[action.indexOfList] = listTasks;
+            }
             return {
                 ...state,
                 tasks: allTasks
@@ -71,19 +73,20 @@ export const tasksReducer = (state = initialState, action: TaskAction): TasksSta
         case TasksActionTypes.DRAG_DROP_TASKS:
             const listFrom = state.tasks[action.listFrom];
             const copyOfTasks = state.tasks;
-            if (state.tasks[action.listTo] === undefined) {
-                let numberOfLists = action.listTo + 1 - state.tasks.length;
-                while (numberOfLists !== 0) {
-                    copyOfTasks.push([]);
-                    numberOfLists -= 1
+            if (action.indexFrom >= 0 && action.indexTo >= 0 && action.listFrom >= 0 && action.listTo >= 0) {
+                if (state.tasks[action.listTo] === undefined) {
+                    let numberOfLists = action.listTo + 1 - state.tasks.length;
+                    while (numberOfLists !== 0) {
+                        copyOfTasks.push([]);
+                        numberOfLists -= 1
+                    }
                 }
+                const listTo = copyOfTasks[action.listTo];
+                const draggingTask = listFrom.splice(action.indexFrom, 1)[0];
+                listTo.splice(action.indexTo, 0, draggingTask);
+                copyOfTasks[action.listFrom] = listFrom;
+                copyOfTasks[action.listTo] = listTo;
             }
-            const listTo = copyOfTasks[action.listTo];
-            const draggingTask = listFrom.splice(action.indexFrom, 1)[0];
-            listTo.splice(action.indexTo, 0, draggingTask);
-
-            copyOfTasks[action.listFrom] = listFrom;
-            copyOfTasks[action.listTo] = listTo;
             return {
                 ...state,
                 tasks: copyOfTasks
@@ -91,7 +94,9 @@ export const tasksReducer = (state = initialState, action: TaskAction): TasksSta
 
         case TasksActionTypes.REMOVE_ALL_TASKS_FROM_LIST:
             const copyTasks = state.tasks;
-            copyTasks.splice(action.indexOfList, 1);
+            if (action.indexOfList >= 0) {
+                copyTasks.splice(action.indexOfList, 1);
+            }
             return {
                 ...state,
                 tasks: copyTasks

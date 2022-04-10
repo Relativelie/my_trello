@@ -1,4 +1,3 @@
-
 import { addNewList } from "../../../src/store/actions/listOfTasksActions";
 import { listOfTasksReducer } from "../../../src/store/reducers/listOfTasksReducer";
 import { ListOfTasksState } from "../../../src/types/listOfTasksTypes";

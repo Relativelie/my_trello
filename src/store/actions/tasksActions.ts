@@ -6,26 +6,26 @@ export const removeTask = (indexOfList: number, indexOfTask: number): TaskAction
     indexOfTask
 });
 
-export const addTask = (name: string, indexOfList: number) :TaskAction => ({
+export const addTask = (name: string, indexOfList: number): TaskAction => ({
     type: TasksActionTypes.ADD_NEW_TASK,
     name,
     indexOfList
 });
 
-export const renameTask = ( indexOfList: number, indexOfTask: number, value: string) :TaskAction => ({
+export const renameTask = (indexOfList: number, indexOfTask: number, value: string): TaskAction => ({
     type: TasksActionTypes.RENAME_TASK,
     indexOfList,
     indexOfTask,
     value
 });
 
-export const dragDropListWithTasks = (indexTo: number, indexFrom: number) :TaskAction => ({
+export const dragDropListWithTasks = (indexTo: number, indexFrom: number): TaskAction => ({
     type: TasksActionTypes.DRAG_DROP_LIST_WITH_TASK,
     indexTo,
     indexFrom
 })
 
-export const dragDropTasks = (listTo: number, listFrom: number, indexTo: number, indexFrom: number) :TaskAction => ({
+export const dragDropTasks = (listTo: number, listFrom: number, indexTo: number, indexFrom: number): TaskAction => ({
     type: TasksActionTypes.DRAG_DROP_TASKS,
     listTo,
     listFrom,
@@ -33,7 +33,7 @@ export const dragDropTasks = (listTo: number, listFrom: number, indexTo: number,
     indexFrom
 })
 
-export const removeAllTasksFromList = (indexOfList: number) => ({
+export const removeAllTasksFromList = (indexOfList: number): TaskAction => ({
     type: TasksActionTypes.REMOVE_ALL_TASKS_FROM_LIST,
     indexOfList
 })
