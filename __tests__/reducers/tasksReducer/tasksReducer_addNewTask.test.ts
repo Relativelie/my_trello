@@ -10,7 +10,7 @@ let nonEmptyTasksState: TasksState
 
 beforeEach(() => {
     emptyTasksState = {
-        tasks: []
+        tasks: [[], [], [], []]
     };
     nonEmptyTasksState = {
         tasks: [
@@ -31,7 +31,10 @@ describe("tasks reducer - add new task", () => {
 
         expect(newState).toStrictEqual({
             tasks: [
-                ["qwerty ert t"]
+                ["qwerty ert t"],
+                [],
+                [],
+                []
             ]
         })
     });

@@ -11,7 +11,7 @@ export const tasksReducer = (state = initialState, action: TaskAction): TasksSta
         case TasksActionTypes.ADD_NEW_TASK:
             if (action.name != null && action.name.trim().length !== 0) {
                 const tasksCopy = state.tasks;
-                tasksCopy[action.indexOfList].push(action.name);
+                tasksCopy[action.indexOfList].push(action.name.trim());
                 return {
                     ...state,
                     tasks: tasksCopy

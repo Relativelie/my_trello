@@ -1,4 +1,4 @@
-import { addTask, dragDropListWithTasks, dragDropTasks, removeAllTasksFromList, removeTask, renameTask } from "../../src/store/actions/tasksActions";
+import { addTask, addTaskArrayToNewList, dragDropListWithTasks, dragDropTasks, removeAllTasksFromList, removeTask, renameTask } from "../../src/store/actions/tasksActions";
 import { TasksActionTypes } from "../../src/types/tasksTypes";
 
 
@@ -71,6 +71,16 @@ describe("tasks actions", () => {
         expect(removeAllTasksFromList(index)).toEqual({
             type: TasksActionTypes.REMOVE_ALL_TASKS_FROM_LIST,
             indexOfList: index
+        })
+    });
+
+
+    test("action to add task array to a new list", () => {
+        const index = 2;
+
+        expect(addTaskArrayToNewList(index)).toEqual({
+            type: TasksActionTypes.ADD_TASK_ARRAY_TO_NEWLIST,
+            listIndex: index
         })
     });
 
