@@ -2,7 +2,7 @@ import { ListOfTasksAction, ListOfTasksActionTypes, ListOfTasksState } from "../
 
 
 const initialState: ListOfTasksState = {
-    lists: ["Write the name of the project"]
+    lists: []
 };
 
 
