@@ -11,17 +11,7 @@ export const tasksReducer = (state = initialState, action: TaskAction): TasksSta
         case TasksActionTypes.ADD_NEW_TASK:
             if (action.name != null && action.name.trim().length !== 0) {
                 const tasksCopy = state.tasks;
-                if (tasksCopy[action.indexOfList] !== undefined) {
-                    tasksCopy[action.indexOfList].push(action.name);
-                }
-                else {
-                    let listsNumber = action.indexOfList + 1 - tasksCopy.length;
-                    while (listsNumber !== 0) {
-                        tasksCopy.push([]);
-                        listsNumber -= 1
-                    }
-                    tasksCopy[action.indexOfList].push(action.name.trim());
-                }
+                tasksCopy[action.indexOfList].push(action.name);
                 return {
                     ...state,
                     tasks: tasksCopy
@@ -64,17 +54,7 @@ export const tasksReducer = (state = initialState, action: TaskAction): TasksSta
         case TasksActionTypes.DRAG_DROP_LIST_WITH_TASK:
             const tasksC = state.tasks;
             const draggingList = tasksC.splice(action.indexFrom, 1)[0];
-            if (tasksC[action.indexTo] !== undefined) {
-                tasksC.splice(action.indexTo, 0, draggingList);
-            }
-            else {
-                let listsNumber = action.indexTo + 1 - tasksC.length;
-                while (listsNumber !== 0) {
-                    tasksC.push([]);
-                    listsNumber -= 1
-                }
-                tasksC.splice(action.indexTo, 0, draggingList);
-            }
+            tasksC.splice(action.indexTo, 0, draggingList);
             return {
                 ...state,
                 tasks: tasksC
@@ -84,13 +64,6 @@ export const tasksReducer = (state = initialState, action: TaskAction): TasksSta
             const listFrom = state.tasks[action.listFrom];
             const copyOfTasks = state.tasks;
             if (action.indexFrom >= 0 && action.indexTo >= 0 && action.listFrom >= 0 && action.listTo >= 0) {
-                if (state.tasks[action.listTo] === undefined) {
-                    let numberOfLists = action.listTo + 1 - state.tasks.length;
-                    while (numberOfLists !== 0) {
-                        copyOfTasks.push([]);
-                        numberOfLists -= 1
-                    }
-                }
                 const listTo = copyOfTasks[action.listTo];
                 const draggingTask = listFrom.splice(action.indexFrom, 1)[0];
                 listTo.splice(action.indexTo, 0, draggingTask);
@@ -110,6 +83,20 @@ export const tasksReducer = (state = initialState, action: TaskAction): TasksSta
             return {
                 ...state,
                 tasks: copyTasks
+            }
+
+        case TasksActionTypes.ADD_TASK_ARRAY_TO_NEWLIST:
+            const tasks = state.tasks;
+            if (state.tasks[action.listIndex] === undefined) {
+                let numberOfLists = action.listIndex + 1 - state.tasks.length;
+                while (numberOfLists !== 0) {
+                    tasks.push([]);
+                    numberOfLists -= 1
+                }
+            }
+            return {
+                ...state,
+                tasks: tasks
             }
 
         default:

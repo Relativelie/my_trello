@@ -23,7 +23,7 @@ export const dragDropListWithTasks = (indexTo: number, indexFrom: number): TaskA
     type: TasksActionTypes.DRAG_DROP_LIST_WITH_TASK,
     indexTo,
     indexFrom
-})
+});
 
 export const dragDropTasks = (listTo: number, listFrom: number, indexTo: number, indexFrom: number): TaskAction => ({
     type: TasksActionTypes.DRAG_DROP_TASKS,
@@ -31,9 +31,14 @@ export const dragDropTasks = (listTo: number, listFrom: number, indexTo: number,
     listFrom,
     indexTo,
     indexFrom
-})
+});
 
 export const removeAllTasksFromList = (indexOfList: number): TaskAction => ({
     type: TasksActionTypes.REMOVE_ALL_TASKS_FROM_LIST,
     indexOfList
+});
+
+export const addTaskArrayToNewList = (listIndex: number) :TaskAction => ({
+    type: TasksActionTypes.ADD_TASK_ARRAY_TO_NEWLIST,
+    listIndex
 })

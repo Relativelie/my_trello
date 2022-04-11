@@ -8,7 +8,13 @@ export enum TasksActionTypes {
     ADD_NEW_TASK = "ADD_NEW_TASK",
     REMOVE_ALL_TASKS_FROM_LIST = "REMOVE_ALL_TASKS_FROM_LIST",
     DRAG_DROP_LIST_WITH_TASK = "DRAG_DROP_LIST_WITH_TASK",
-    DRAG_DROP_TASKS = "DRAG_DROP_TASKS"
+    DRAG_DROP_TASKS = "DRAG_DROP_TASKS",
+    ADD_TASK_ARRAY_TO_NEWLIST = "ADD_TASK_ARRAY_TO_NEWLIST"
+}
+
+interface addTaskArrayToNewList {
+    type: TasksActionTypes.ADD_TASK_ARRAY_TO_NEWLIST,
+    listIndex: number
 }
 
 interface removeTask {
@@ -57,4 +63,5 @@ export type TaskAction =
     | removeAllTasksFromList
     | dragDropListWithTasks
     | dragDropTasks
+    | addTaskArrayToNewList
 
