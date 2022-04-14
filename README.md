@@ -2,8 +2,6 @@
 
 In this planner you can create lists/tasks, move them around, add lists/tasks, rename them and delete
 
-Online demo: https://relativelie.github.io/my_trello/
-
 Used: 
 - typescript
 - react
