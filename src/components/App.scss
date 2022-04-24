@@ -2,11 +2,11 @@
 
 
 .listsBlock {
-    display: flex
+    display: flex;
+    width: 110%;
 }
 
 .listsBlock_container {
     display: flex;
     height: calc(100vh - ($addListMargin + $addListHeight));
-    width: 110%;
 }
