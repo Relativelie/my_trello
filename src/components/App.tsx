@@ -49,8 +49,8 @@ export default function App() {
             <DragDropContext onDragEnd={(e) => handleOnDragEnd(e)}>
                 <Droppable droppableId="lists" type="lists" direction="horizontal">
                     {(provided) => (
-                        <div {...provided.droppableProps} ref={provided.innerRef}>
-                            <div className="listsBlock">
+                        <div className="listsBlock" {...provided.droppableProps} ref={provided.innerRef}>
+                            <div className="listsBlock_container">
                                 {lists.map((list: string, listIndex: number) => (
                                     <Lists key={listIndex} list={list} index={listIndex}>
                                         {Children.map(tasks[listIndex], (child, taskIndex) => (
