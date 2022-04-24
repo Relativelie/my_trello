@@ -6,7 +6,6 @@
     height: $addListHeight;
     margin-bottom: $addListMargin;
     
-
     & button {
         position: fixed;
         width: 100%;
@@ -15,7 +14,6 @@
         background-color: rgba(6, 255, 168, 0.706); 
         transition: all .2s ease;
         cursor: pointer;
-
     }
 
     & button:hover {

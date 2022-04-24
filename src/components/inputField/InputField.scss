@@ -3,13 +3,11 @@
 .inputContainer {
     grid-area: name;
 
-
     & .inputName {
         width: 95%;
         cursor: pointer;
     }
 }
-
 
 .hideInput {
     opacity: 0;
