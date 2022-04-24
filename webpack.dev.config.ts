@@ -51,7 +51,6 @@ const config: Configuration = {
         new HtmlWebpackPlugin({
             template: "./public/index.html",
         }),
-        new HotModuleReplacementPlugin(),
         new ProvidePlugin({
             "React": "react",
         }),

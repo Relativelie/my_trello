@@ -4,7 +4,7 @@ import { Draggable, Droppable } from 'react-beautiful-dnd';
 import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 
-import { AddTask } from '../addTask/AddTask';
+import { AddTask } from './addTask/AddTask';
 import { InputField } from '../inputField/InputField';
 
 import './Lists.scss';
@@ -55,14 +55,14 @@ export const Lists: FC<Props> = ({ children, index, list }) => {
                         </div>
                         <AddTask indexOfList={index} />
                         <Droppable droppableId={`listArea-${index}`} type="tasks">
-                            {(provided) => (
+                            {(taskProvided) => (
                                 <div
                                     className="dropppableTasksBlock"
-                                    {...provided.droppableProps}
-                                    ref={provided.innerRef}
+                                    {...taskProvided.droppableProps}
+                                    ref={taskProvided.innerRef}
                                 >
                                     {children}
-                                    {provided.placeholder}
+                                    {taskProvided.placeholder}
                                 </div>
                             )}
                         </Droppable>

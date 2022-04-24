@@ -1,6 +1,6 @@
-import { addTaskArrayToNewList } from '../../../src/store/actions/tasksActions';
-import { tasksReducer } from '../../../src/store/reducers/tasksReducer';
-import { TasksState } from '../../../src/types/tasksTypes';
+import { addTaskArrayToNewList } from '../../../../src/store/actions/tasksActions';
+import { tasksReducer } from '../../../../src/store/reducers/tasksReducer';
+import { TasksState } from '../../../../src/types/tasksTypes';
 
 let emptyTasksState: TasksState;
 let nonEmptyTasksState: TasksState;

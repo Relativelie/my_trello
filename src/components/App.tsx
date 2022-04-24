@@ -11,7 +11,11 @@ import { Tasks } from './tasks/Tasks';
 import './App.scss';
 
 export default function App() {
-    const { dragDropList, dragDropListWithTasks, dragDropTasks } = useActions();
+    const { dragDropList,
+        dragDropListWithTasks,
+        dragDropTasks,
+        addNewList,
+        addTaskArrayToNewList } = useActions();
     const { lists } = useTypedSelector((state) => state.listOfTasksReducer);
     const { tasks } = useTypedSelector((tasksState) => tasksState.tasksReducer);
 
@@ -34,9 +38,14 @@ export default function App() {
         return parseInt(value.substring(value.length, countOfStr), 10);
     };
 
+    const listsAdding = () => {
+        addNewList();
+        addTaskArrayToNewList(lists.length);
+    };
+
     return (
         <div>
-            <AddList />
+            <AddList listsAdding={listsAdding} />
             <DragDropContext onDragEnd={(e) => handleOnDragEnd(e)}>
                 <Droppable droppableId="lists" type="lists" direction="horizontal">
                     {(provided) => (

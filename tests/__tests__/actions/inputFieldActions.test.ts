@@ -2,8 +2,8 @@ import {
     nameValidationOff,
     nameValidationOn,
     showCurrentValueInInput,
-} from '../../src/store/actions/inputFieldActions';
-import { InputFieldActionTypes } from '../../src/types/inputFieldTypes';
+} from '../../../src/store/actions/inputFieldActions';
+import { InputFieldActionTypes } from '../../../src/types/inputFieldTypes';
 
 describe('input field actions', () => {
     test('action to verify value from input field', () => {

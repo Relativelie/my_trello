@@ -1,17 +1,11 @@
-import { useActions } from '../../hooks/useActions';
-import { useTypedSelector } from '../../hooks/useTypedSelector';
-
+import { FC } from 'react';
 import './AddList.scss';
 
-export const AddList = () => {
-    const { addNewList, addTaskArrayToNewList } = useActions();
-    const { lists } = useTypedSelector((listsState) => listsState.listOfTasksReducer);
+type Props = {
+    listsAdding: Function
+};
 
-    const listsAdding = () => {
-        addNewList();
-        addTaskArrayToNewList(lists.length);
-    };
-
+export const AddList:FC<Props> = ({ listsAdding }) => {
     return (
         <div className="addListButtonContainer">
             <button

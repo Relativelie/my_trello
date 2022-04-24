@@ -1,6 +1,6 @@
-import { removeAllTasksFromList } from '../../../src/store/actions/tasksActions';
-import { tasksReducer } from '../../../src/store/reducers/tasksReducer';
-import { TasksState } from '../../../src/types/tasksTypes';
+import { removeAllTasksFromList } from '../../../../src/store/actions/tasksActions';
+import { tasksReducer } from '../../../../src/store/reducers/tasksReducer';
+import { TasksState } from '../../../../src/types/tasksTypes';
 
 let nonEmptyTasksState: TasksState;
 

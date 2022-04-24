@@ -6,8 +6,8 @@ import {
     removeAllTasksFromList,
     removeTask,
     renameTask,
-} from '../../src/store/actions/tasksActions';
-import { TasksActionTypes } from '../../src/types/tasksTypes';
+} from '../../../src/store/actions/tasksActions';
+import { TasksActionTypes } from '../../../src/types/tasksTypes';
 
 describe('tasks actions', () => {
     test('action to remove task', () => {

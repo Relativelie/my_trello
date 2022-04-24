@@ -1,5 +1,5 @@
 import { FC, useRef } from 'react';
-import { useActions } from '../../hooks/useActions';
+import { useActions } from '../../../hooks/useActions';
 
 import './AddTask.scss';
 
@@ -8,11 +8,12 @@ interface Props {
 }
 
 export const AddTask: FC<Props> = ({ indexOfList }) => {
-    const { addTask } = useActions();
+    const { addTask, addTaskArrayToNewList } = useActions();
     const myRef = useRef<HTMLInputElement>(null);
 
     const taskAdding = (e: string) => {
         if ((e === 'click' || e === 'Enter') && myRef.current !== null) {
+            addTaskArrayToNewList(indexOfList);
             addTask(myRef.current.value, indexOfList);
             myRef.current.value = '';
         }
@@ -21,9 +22,10 @@ export const AddTask: FC<Props> = ({ indexOfList }) => {
     return (
         <div className="addTaskContainer">
             <input
+                aria-label="input task name"
                 type="text"
                 maxLength={34}
-                onKeyPress={(e) => { taskAdding(e.code); }}
+                onKeyPress={(e) => taskAdding(e.key)}
                 ref={myRef}
             />
             <button

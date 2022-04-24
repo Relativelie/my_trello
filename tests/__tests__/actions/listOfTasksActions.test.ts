@@ -3,8 +3,8 @@ import {
     dragDropList,
     removeList,
     renameList,
-} from '../../src/store/actions/listOfTasksActions';
-import { ListOfTasksActionTypes } from '../../src/types/listOfTasksTypes';
+} from '../../../src/store/actions/listOfTasksActions';
+import { ListOfTasksActionTypes } from '../../../src/types/listOfTasksTypes';
 
 describe('list of tasks actions', () => {
     test('action to add new list', () => {

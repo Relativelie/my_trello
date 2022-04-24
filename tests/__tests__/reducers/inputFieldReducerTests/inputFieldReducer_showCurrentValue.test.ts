@@ -1,6 +1,6 @@
-import { showCurrentValueInInput } from '../../../src/store/actions/inputFieldActions';
-import { inputFieldReducer } from '../../../src/store/reducers/inputFieldReducer';
-import { InputFieldState } from '../../../src/types/inputFieldTypes';
+import { showCurrentValueInInput } from '../../../../src/store/actions/inputFieldActions';
+import { inputFieldReducer } from '../../../../src/store/reducers/inputFieldReducer';
+import { InputFieldState } from '../../../../src/types/inputFieldTypes';
 
 let inputFieldState: InputFieldState;
 
