@@ -1,79 +1,71 @@
-import { InputFieldActionTypes, InputFieldState, InputFieldAction } from "../../types/inputFieldTypes";
-
+import { InputFieldActionTypes, InputFieldState, InputFieldAction } from '../../types/inputFieldTypes';
 
 const initialState: InputFieldState = {
     isCorrectListName: false,
     isCorrectTaskName: false,
     newName: null,
     indexOfRenamedElem: [],
-    currentName: "",
+    currentName: '',
 };
 
-
+// eslint-disable-next-line max-len
 export const inputFieldReducer = (state = initialState, action: InputFieldAction): InputFieldState => {
     switch (action.type) {
-        case InputFieldActionTypes.TURN_ON_NAME_VALIDATION:
-            const currentName = action.nameValue.trim();
-            const checkToCorrect = currentName !== "" ? true : false;
-            const newNameValue = checkToCorrect ? currentName : "";
-            if(checkToCorrect === false ) {
+        case InputFieldActionTypes.TURN_ON_NAME_VALIDATION: {
+            const current = action.nameValue.trim();
+            const checkToCorrect = current !== '';
+            const newNameValue = checkToCorrect ? current : '';
+            if (checkToCorrect === false) {
                 return {
-                    ...state
-                }
+                    ...state,
+                };
+            } else if (action.typeOfElement === 'list') {
+                return {
+                    ...state,
+                    isCorrectListName: true,
+                    newName: newNameValue,
+                    indexOfRenamedElem: action.index,
+                };
+            } else {
+                return {
+                    ...state,
+                    isCorrectTaskName: true,
+                    newName: newNameValue,
+                    indexOfRenamedElem: action.index,
+                };
             }
-            else {
-                if (action.typeOfElement === "list") {
-                    return {
-                        ...state,
-                        isCorrectListName: true,
-                        newName: newNameValue,
-                        indexOfRenamedElem: action.index
-                    }
-                }
-                else {
-                    return {
-                        ...state,
-                        isCorrectTaskName: true,
-                        newName: newNameValue,
-                        indexOfRenamedElem: action.index
-                    }
-                }
-                
-            }
+        }
 
         case InputFieldActionTypes.TURN_OFF_NAME_VALIDATION:
-            if(action.typeOfElement=== "task") {
+            if (action.typeOfElement === 'task') {
                 return {
                     ...state,
-                    currentName: "",
+                    currentName: '',
                     isCorrectTaskName: false,
                     indexOfRenamedElem: [],
-                    newName: null
-                }
-            }
-            else if (action.typeOfElement=== "list") {
+                    newName: null,
+                };
+            } else if (action.typeOfElement === 'list') {
                 return {
                     ...state,
-                    currentName: "",
+                    currentName: '',
                     isCorrectListName: false,
                     indexOfRenamedElem: [],
-                    newName: null
-                }
+                    newName: null,
+                };
+            } else {
+                return {
+                    ...state,
+                };
             }
 
-            else {
-                return {
-                    ...state
-                }
-            }
-        
         case InputFieldActionTypes.SHOW_CURRENT_VALUE_IN_INPUT:
             return {
-                ...state, 
-                currentName: action.value
-            }
-            
+                ...state,
+                currentName: action.value,
+            };
+
         default:
-            return state
+            return state;
     }
-}
+};

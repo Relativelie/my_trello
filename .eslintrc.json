@@ -25,6 +25,7 @@
     ],
     "rules": {
         "react/jsx-props-no-spreading": "off",
+        "@typescript-eslint/default-param-last": "off",
         "no-plusplus": "off",
         "@typescript-eslint/no-use-before-define": "off",
         "no-useless-return": "off",
@@ -38,6 +39,6 @@
         "react/react-in-jsx-scope": "off",
         "react/function-component-definition": "off",
         "@typescript-eslint/indent": "off",
-        "indent": ["error", 4]
+        "indent": ["error", 4, { "SwitchCase": 1 }]
     }
 }

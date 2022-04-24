@@ -3,34 +3,34 @@ export interface ListOfTasksState {
 }
 
 export enum ListOfTasksActionTypes {
-    ADD_NEW_LIST = "ADD_NEW_LIST",
-    RENAME_LIST = "RENAME_LIST",
-    REMOVE_LIST = "REMOVE_LIST",
-    DRAG_DROP_LIST = "DRAG_DROP_LIST"
+    ADD_NEW_LIST = 'ADD_NEW_LIST',
+    RENAME_LIST = 'RENAME_LIST',
+    REMOVE_LIST = 'REMOVE_LIST',
+    DRAG_DROP_LIST = 'DRAG_DROP_LIST',
 }
 
-interface addNewList {
+interface AddNewList {
     type: ListOfTasksActionTypes.ADD_NEW_LIST
 }
 
-interface renameList {
+interface RenameList {
     type: ListOfTasksActionTypes.RENAME_LIST,
     name: string,
     index: number
 }
 
-interface removeList {
+interface RemoveList {
     type: ListOfTasksActionTypes.REMOVE_LIST,
     indexOfList: number
 }
 
-interface dragDropList {
+interface DragDropList {
     type: ListOfTasksActionTypes.DRAG_DROP_LIST,
     indexTo: number,
     indexFrom: number
 }
 export type ListOfTasksAction =
-    addNewList
-    | renameList
-    | removeList
-    | dragDropList
+    AddNewList
+    | RenameList
+    | RemoveList
+    | DragDropList;

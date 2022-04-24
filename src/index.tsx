@@ -4,15 +4,14 @@ import { Provider } from 'react-redux';
 import App from './components/App';
 import { store } from './store';
 
-import "./index.scss";
-
+import './index.scss';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-    <App />
-    </Provider>
+    <React.StrictMode>
+        <Provider store={store}>
+            <App />
+        </Provider>
 
-  </React.StrictMode>,
-  document.getElementById('root')
+    </React.StrictMode>,
+    document.getElementById('root'),
 );
