@@ -4,4 +4,5 @@
 .listsBlock {
     display: flex;
     height: calc(100vh - ($addListMargin + $addListHeight));
+    width: 110%;
 }
