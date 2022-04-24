@@ -39,10 +39,10 @@ export const Tasks: FC<Props> = ({ taskIndex, listIndex, task }) => {
                         <div className="visibleName">
                             <p>{task}</p>
                         </div>
-
                         <InputField index={[listIndex, taskIndex]} typeOfElement="task" taskValue={task} />
                     </div>
                     <span
+                        aria-label="drag task"
                         {...provided.dragHandleProps}
                         className="draggingBtn"
                     />
