@@ -8,5 +8,5 @@
 
 .listsBlock_container {
     display: flex;
-    height: calc(100vh - ($addListMargin + $addListHeight));
+    height: calc(100vh - ($addListMargin + $addListHeight + $menuHeight));
 }

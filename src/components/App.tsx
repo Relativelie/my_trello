@@ -7,6 +7,7 @@ import { useActions } from '../hooks/useActions';
 import { AddList } from './addList/AddList';
 import { Lists } from './lists/Lists';
 import { Tasks } from './tasks/Tasks';
+import { Menu } from './menu/Menu';
 
 import './App.scss';
 
@@ -45,29 +46,32 @@ export default function App() {
 
     return (
         <div>
-            <AddList listsAdding={listsAdding} />
-            <DragDropContext onDragEnd={(e) => handleOnDragEnd(e)}>
-                <Droppable droppableId="lists" type="lists" direction="horizontal">
-                    {(provided) => (
-                        <div className="listsBlock" {...provided.droppableProps} ref={provided.innerRef}>
-                            <div className="listsBlock_container">
-                                {lists.map((list: string, listIndex: number) => (
-                                    <Lists key={listIndex} list={list} index={listIndex}>
-                                        {Children.map(tasks[listIndex], (child, taskIndex) => (
-                                            <Tasks
-                                                listIndex={listIndex}
-                                                taskIndex={taskIndex}
-                                                task={child}
-                                            />
-                                        ))}
-                                    </Lists>
-                                ))}
+            <Menu />
+            <main>
+                <AddList listsAdding={listsAdding} />
+                <DragDropContext onDragEnd={(e) => handleOnDragEnd(e)}>
+                    <Droppable droppableId="lists" type="lists" direction="horizontal">
+                        {(provided) => (
+                            <div className="listsBlock" {...provided.droppableProps} ref={provided.innerRef}>
+                                <div className="listsBlock_container">
+                                    {lists.map((list: string, listIndex: number) => (
+                                        <Lists key={listIndex} list={list} index={listIndex}>
+                                            {Children.map(tasks[listIndex], (child, taskIndex) => (
+                                                <Tasks
+                                                    listIndex={listIndex}
+                                                    taskIndex={taskIndex}
+                                                    task={child}
+                                                />
+                                            ))}
+                                        </Lists>
+                                    ))}
+                                </div>
+                                {provided.placeholder}
                             </div>
-                            {provided.placeholder}
-                        </div>
-                    )}
-                </Droppable>
-            </DragDropContext>
+                        )}
+                    </Droppable>
+                </DragDropContext>
+            </main>
         </div>
     );
 }

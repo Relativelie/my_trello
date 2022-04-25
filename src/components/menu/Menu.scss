@@ -1,0 +1,47 @@
+@import "../../templates";
+
+.menuBlock {
+    position: relative;
+    height: $menuHeight;
+}
+
+.menuBlock_container {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    background-color: #021447bb;
+}
+
+.menuElements {
+    display: flex;
+    gap: 5vw;
+}
+
+.menuHeader,
+.menuElements_item {
+    color: $textColor;
+    font-family: $fontText;
+    text-shadow: 0 4px 10px #000000;
+}
+
+.menuHeader {
+    font-size: $listTextSize;
+}
+
+.menuElements_anchor {
+    text-decoration: none;
+}
+
+.menuElements_item {
+    font-size: $tasksTextSize;
+    list-style: none;
+    cursor: pointer;
+}
+
+.menuElements_item:hover {
+    text-shadow: 0 4px 10px rgb(249, 249, 185);
+}

@@ -13,6 +13,8 @@
         border: 1px solid rgb(255, 255, 255);
         background-color: rgba(6, 255, 168, 0.706); 
         transition: all .2s ease;
+        font-family: $fontText;
+        font-size: $listTextSize;
         cursor: pointer;
     }
 
