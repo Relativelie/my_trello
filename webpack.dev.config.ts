@@ -1,7 +1,8 @@
 import path from "path";
-import { Configuration as WebpackConfiguration, HotModuleReplacementPlugin, ProvidePlugin } from "webpack";
+import { Configuration as WebpackConfiguration, ProvidePlugin } from "webpack";
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
 interface Configuration extends WebpackConfiguration {
     devServer?: WebpackDevServerConfiguration;
@@ -54,6 +55,7 @@ const config: Configuration = {
         new ProvidePlugin({
             "React": "react",
         }),
+        new CleanWebpackPlugin(),
     ],
     devtool: "inline-source-map",
     devServer: {

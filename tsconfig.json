@@ -11,8 +11,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "types": ["react/next", "react-dom/next", "jest", "@testing-library/jest-dom"],
+    "jsx": "react-jsx"
   },
   "include": ["src", "tests/__tests__", "tests/__mocks__", "tests/testsSetup"]
 }
