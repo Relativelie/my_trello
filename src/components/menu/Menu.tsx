@@ -2,15 +2,15 @@ import './Menu.scss';
 
 export const Menu = () => {
     return (
-        <nav className="menuBlock">
-            <div className="menuBlock_container">
-                <h3 className="menuHeader">World of GuRepio planners</h3>
-                <ul className="menuElements">
-                    <li className="menuElements_item">There could be a menu here</li>
-                    <li className="menuElements_item">
+        <nav className="menu">
+            <div className="menu__container">
+                <h3 className="menu__header">World of GuRepio planners</h3>
+                <ul className="menu__elements">
+                    <li className="menu__elements__item">There could be a menu</li>
+                    <li className="menu__elements__item">
                         <address>
                             <a
-                                className="menuElements_item menuElements_anchor"
+                                className="menu__elements__item menu__elements__anchor"
                                 target="_blank"
                                 rel="noreferrer"
                                 href="https://github.com/Relativelie?tab=repositories"

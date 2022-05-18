@@ -1,11 +1,11 @@
 @import "../../templates";
 
-.menuBlock {
+.menu {
     position: relative;
     height: $menuHeight;
 }
 
-.menuBlock_container {
+.menu__container {
     position: fixed;
     display: flex;
     align-items: center;
@@ -16,13 +16,13 @@
     background-color: #021447bb;
 }
 
-.menuElements {
+.menu__elements {
     display: flex;
     gap: 5vw;
 }
 
-.menuHeader,
-.menuElements_item {
+.menu__header,
+.menu__elements__item {
     color: $textColor;
     font-family: $fontText;
     text-shadow: 0 4px 10px #000000;
@@ -32,11 +32,11 @@
     font-size: $listTextSize;
 }
 
-.menuElements_anchor {
+.menu__elements__anchor {
     text-decoration: none;
 }
 
-.menuElements_item {
+.menu__elements__item {
     font-size: $tasksTextSize;
     list-style: none;
     cursor: pointer;
