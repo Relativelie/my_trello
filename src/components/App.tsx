@@ -53,7 +53,7 @@ export default function App() {
                     <Droppable droppableId="lists" type="lists" direction="horizontal">
                         {(provided) => (
                             <div className="listsBlock" {...provided.droppableProps} ref={provided.innerRef}>
-                                <div className="listsBlock_container">
+                                <div className="listsBlock__container">
                                     {lists.map((list: string, listIndex: number) => (
                                         <Lists key={listIndex} list={list} index={listIndex}>
                                             {Children.map(tasks[listIndex], (child, taskIndex) => (

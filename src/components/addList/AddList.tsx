@@ -7,7 +7,7 @@ type Props = {
 
 export const AddList:FC<Props> = ({ listsAdding }) => {
     return (
-        <div className="addListButtonContainer">
+        <div className="addList__buttonContainer">
             <button
                 onClick={() => listsAdding()}
                 type="button"

@@ -1,7 +1,7 @@
 @import "../../templates";
 
 
-.listsContainer {
+.allLists {
     display: flex;
     justify-content: center;
     width: 330px;
@@ -12,33 +12,33 @@
     background-color: rgba(0, 0, 0, 0.229);
 }
 
-.listNameContainer {
+.options {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 10px 0;
 }
 
-.listName {
+.options__listNameBlock {
     @include inputNames($gridColumns: 300px);
-
-    & .visibleName {
-        grid-area: name;
-    }
-
-    .visibleName p {
-        font-size: $listTextSize;
-        font-family: $fontText;
-        color: $textColor
-    }
 }
 
-.removeList {
+.options__listName_visibleName {
+    grid-area: name;
+}
+
+.options__listName_visibleName p {
+    font-size: $listTextSize;
+    font-family: $fontText;
+    color: $textColor
+}
+
+.options__removeList {
     @include optionBtn($bgColor: rgba(253, 161, 161, 0.624),
         $bgColorHover: rgb(253, 52, 52))
 }
 
-.dropppableTasksBlock {
+.list__taskDropArea {
     height: 90%;
     overflow: scroll
 }

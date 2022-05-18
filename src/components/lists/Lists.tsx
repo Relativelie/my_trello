@@ -35,18 +35,18 @@ export const Lists: FC<Props> = ({ children, index, list }) => {
     return (
         <Draggable draggableId={`listBeing-${index}`} index={index}>
             {(provided) => (
-                <div className="listsContainer" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-                    <div>
-                        <div className="listNameContainer">
-                            <div className="listName">
-                                <div className="visibleName">
+                <div className="allLists" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+                    <div className="list">
+                        <div className="options">
+                            <div className="options__listNameBlock">
+                                <div className="options__listName_visibleName">
                                     <p>{list}</p>
                                 </div>
                                 <InputField index={index} typeOfElement="list" taskValue="" />
                             </div>
                             <button
                                 aria-label="remove list"
-                                className="removeList"
+                                className="options__removeList"
                                 onClick={() => { removeListWithTasks(index); }}
                                 type="button"
                             >
@@ -57,7 +57,7 @@ export const Lists: FC<Props> = ({ children, index, list }) => {
                         <Droppable droppableId={`listArea-${index}`} type="tasks">
                             {(taskProvided) => (
                                 <div
-                                    className="dropppableTasksBlock"
+                                    className="list__taskDropArea"
                                     {...taskProvided.droppableProps}
                                     ref={taskProvided.innerRef}
                                 >
