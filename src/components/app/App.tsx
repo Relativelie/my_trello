@@ -1,13 +1,13 @@
 import { Children } from 'react';
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
 
-import { useTypedSelector } from '../hooks/useTypedSelector';
-import { useActions } from '../hooks/useActions';
+import { useActions } from '../../hooks/useActions';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
-import { AddList } from './addList/AddList';
-import { Lists } from './lists/Lists';
-import { Tasks } from './tasks/Tasks';
-import { Menu } from './menu/Menu';
+import { AddList } from '../addList/AddList';
+import { Lists } from '../lists/Lists';
+import { Menu } from '../menu/Menu';
+import { Tasks } from '../tasks/Tasks';
 
 import './App.scss';
 

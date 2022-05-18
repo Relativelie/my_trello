@@ -20,8 +20,9 @@ export const AddTask: FC<Props> = ({ indexOfList }) => {
     };
 
     return (
-        <div className="addTaskContainer">
+        <div className="taskOption__adding">
             <input
+                className="taskOption__adding__inputField"
                 aria-label="input task name"
                 type="text"
                 maxLength={34}
@@ -29,6 +30,7 @@ export const AddTask: FC<Props> = ({ indexOfList }) => {
                 ref={myRef}
             />
             <button
+                className="taskOption__adding__addBtn"
                 onClick={(e) => taskAdding(e.type)}
                 type="button"
             >

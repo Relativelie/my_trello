@@ -34,9 +34,9 @@ export const Tasks: FC<Props> = ({ taskIndex, listIndex, task }) => {
     return (
         <Draggable draggableId={`task-${taskIndex}-${listIndex}`} index={taskIndex}>
             {(provided) => (
-                <div className="taskContainer" {...provided.draggableProps} ref={provided.innerRef}>
-                    <div className="taskName" data-taskindex={taskIndex}>
-                        <div className="visibleName">
+                <div className="task" {...provided.draggableProps} ref={provided.innerRef}>
+                    <div className="task__options" data-taskindex={taskIndex}>
+                        <div className="options__taskName options__taskName_visibleName">
                             <p>{task}</p>
                         </div>
                         <InputField index={[listIndex, taskIndex]} typeOfElement="task" taskValue={task} />
@@ -48,7 +48,7 @@ export const Tasks: FC<Props> = ({ taskIndex, listIndex, task }) => {
                     />
                     <button
                         aria-label="remove task"
-                        className="removeTaskBtn"
+                        className="options__removeTask"
                         onClick={() => removeTask(listIndex, taskIndex)}
                         type="button"
                     >

@@ -1,28 +1,27 @@
 @import "../../templates";
 
 
-.taskContainer {
+.task {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 5% 0;
 }
 
-.taskName {
+.task__options {
     @include inputNames($gridColumns: 260px);
-
-    & .visibleName {
-        grid-area: name;
-    }
-
-    .visibleName p {
-        font-size: $tasksTextSize;
-        font-family: $fontText;
-        color: $textColor
-    }
 }
 
-.removeTaskBtn {
+.options__taskName_visibleName {
+    grid-area: name;
+}
+
+.options__taskName_visibleName p {
+    font-size: $tasksTextSize;
+    font-family: $fontText;
+    color: $textColor
+}
+
+.options__removeTask {
     @include optionBtn($bgColor: rgba(205, 205, 205, 0.793),
         $bgColorHover: rgb(253, 52, 52));
 }

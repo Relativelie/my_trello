@@ -1,19 +1,20 @@
 @import "../../../templates";
 
 
-.addTaskContainer {
+.taskOption__adding {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
 
-    & input {
+    & .taskOption__adding__inputField {
         width: 200px;
         padding: 3px;
         font-size: $tasksTextSize;
         font-family: $fontText;
     }
 
-    & button {
+    & .taskOption__adding__addBtn {
         padding: 5px;
         border: none;
         border-radius: 10px;

@@ -1,7 +1,7 @@
 @import "../../templates";
 
 
-.allLists {
+.list {
     display: flex;
     justify-content: center;
     width: 330px;
@@ -12,7 +12,7 @@
     background-color: rgba(0, 0, 0, 0.229);
 }
 
-.options {
+.list__options {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,6 +39,9 @@
 }
 
 .list__taskDropArea {
-    height: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    height: 85%;
     overflow: scroll
 }

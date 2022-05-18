@@ -2,13 +2,13 @@
 
 .inputContainer {
     grid-area: name;
-
-    & .inputName {
-        width: 95%;
-        cursor: pointer;
-    }
 }
 
-.hideInput {
+.inputContainer__inputName {
+    width: 95%;
+    cursor: pointer;
+}
+
+.inputContainer__inputName_hideInput {
     opacity: 0;
 }

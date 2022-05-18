@@ -35,11 +35,11 @@ export const Lists: FC<Props> = ({ children, index, list }) => {
     return (
         <Draggable draggableId={`listBeing-${index}`} index={index}>
             {(provided) => (
-                <div className="allLists" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-                    <div className="list">
-                        <div className="options">
+                <div className="list" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+                    <div>
+                        <div className="list__options">
                             <div className="options__listNameBlock">
-                                <div className="options__listName_visibleName">
+                                <div className="options__listName options__listName_visibleName">
                                     <p>{list}</p>
                                 </div>
                                 <InputField index={index} typeOfElement="list" taskValue="" />

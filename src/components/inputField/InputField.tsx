@@ -26,7 +26,7 @@ export const InputField: FC<Props> = ({ index, typeOfElement, taskValue }) => {
             if (indexElem !== undefined) {
                 nameValidationOn(inputValue, indexElem, typeOfElement);
             }
-            elem.classList.add('hideInput');
+            elem.classList.add('inputContainer__inputName_hideInput');
             elem.blur();
         }
     };
@@ -37,7 +37,7 @@ export const InputField: FC<Props> = ({ index, typeOfElement, taskValue }) => {
             inputValue = lists[index];
         } else inputValue = taskValue;
         showCurrentValueInInput(inputValue);
-        e.target.classList.remove('hideInput');
+        e.target.classList.remove('inputContainer__inputName_hideInput');
     };
 
     return (
@@ -45,7 +45,7 @@ export const InputField: FC<Props> = ({ index, typeOfElement, taskValue }) => {
             <input
                 aria-label={`add new ${typeOfElement}`}
                 data-elemkey={index}
-                className="inputName hideInput"
+                className="inputContainer__inputName inputContainer__inputName_hideInput"
                 type="text"
                 maxLength={44}
                 onKeyPress={(blurEvent) => { validateInputValue(blurEvent.key, blurEvent); }}
