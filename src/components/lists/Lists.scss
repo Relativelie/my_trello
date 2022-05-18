@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     width: 330px;
-    height: calc(100vh - ($addListMargin + $addListHeight + $menuHeight + 10%));
+    height: calc(100vh - ($addListMargin + $addListHeight + $menuHeight + 5%));
     padding: 10px;
     margin: 0 10px;
     border: 1px solid rgba(255, 255, 255, 0.769);
