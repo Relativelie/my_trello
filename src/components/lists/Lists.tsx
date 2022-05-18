@@ -57,7 +57,7 @@ export const Lists: FC<Props> = ({ children, index, list }) => {
                         <Droppable droppableId={`listArea-${index}`} type="tasks">
                             {(taskProvided) => (
                                 <div
-                                    className="list__taskDropArea"
+                                    className="list__taskDropArea list__taskDropArea_scrollbar"
                                     {...taskProvided.droppableProps}
                                     ref={taskProvided.innerRef}
                                 >
