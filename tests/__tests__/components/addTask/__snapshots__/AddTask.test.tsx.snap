@@ -6,14 +6,16 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="addTaskContainer"
+        class="taskOption__adding"
       >
         <input
           aria-label="input task name"
+          class="taskOption__adding__inputField"
           maxlength="34"
           type="text"
         />
         <button
+          class="taskOption__adding__addBtn"
           type="button"
         >
           Add task
@@ -23,14 +25,16 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="addTaskContainer"
+      class="taskOption__adding"
     >
       <input
         aria-label="input task name"
+        class="taskOption__adding__inputField"
         maxlength="34"
         type="text"
       />
       <button
+        class="taskOption__adding__addBtn"
         type="button"
       >
         Add task

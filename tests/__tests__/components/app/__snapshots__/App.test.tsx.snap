@@ -6,23 +6,62 @@ Object {
   "baseElement": <body>
     <div>
       <div>
-        <div
-          class="addListButtonContainer"
-        >
-          <button
-            type="button"
-          >
-            Add another list
-          </button>
-        </div>
-        <div
-          data-rbd-droppable-context-id="0"
-          data-rbd-droppable-id="lists"
+        <nav
+          class="menu"
         >
           <div
+            class="menu__container"
+          >
+            <h3
+              class="menu__header"
+            >
+              World of GuRepio planners
+            </h3>
+            <ul
+              class="menu__elements"
+            >
+              <li
+                class="menu__elements__item"
+              >
+                There could be a menu
+              </li>
+              <li
+                class="menu__elements__item"
+              >
+                <address>
+                  <a
+                    class="menu__elements__item menu__elements__anchor"
+                    href="https://github.com/Relativelie?tab=repositories"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Go to github
+                  </a>
+                </address>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <main>
+          <div
+            class="addList__buttonContainer"
+          >
+            <button
+              type="button"
+            >
+              Add another list
+            </button>
+          </div>
+          <div
             class="listsBlock"
-          />
-        </div>
+            data-rbd-droppable-context-id="0"
+            data-rbd-droppable-id="lists"
+          >
+            <div
+              class="listsBlock__container"
+            />
+          </div>
+        </main>
       </div>
     </div>
     <div
@@ -44,23 +83,62 @@ Object {
   </body>,
   "container": <div>
     <div>
-      <div
-        class="addListButtonContainer"
-      >
-        <button
-          type="button"
-        >
-          Add another list
-        </button>
-      </div>
-      <div
-        data-rbd-droppable-context-id="0"
-        data-rbd-droppable-id="lists"
+      <nav
+        class="menu"
       >
         <div
+          class="menu__container"
+        >
+          <h3
+            class="menu__header"
+          >
+            World of GuRepio planners
+          </h3>
+          <ul
+            class="menu__elements"
+          >
+            <li
+              class="menu__elements__item"
+            >
+              There could be a menu
+            </li>
+            <li
+              class="menu__elements__item"
+            >
+              <address>
+                <a
+                  class="menu__elements__item menu__elements__anchor"
+                  href="https://github.com/Relativelie?tab=repositories"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Go to github
+                </a>
+              </address>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <main>
+        <div
+          class="addList__buttonContainer"
+        >
+          <button
+            type="button"
+          >
+            Add another list
+          </button>
+        </div>
+        <div
           class="listsBlock"
-        />
-      </div>
+          data-rbd-droppable-context-id="0"
+          data-rbd-droppable-id="lists"
+        >
+          <div
+            class="listsBlock__container"
+          />
+        </div>
+      </main>
     </div>
   </div>,
   "debug": [Function],

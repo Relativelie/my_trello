@@ -18,21 +18,21 @@ describe('Input field component', () => {
     test('List input - show and hide(with enter) input field', () => {
         render(<InputField index={0} typeOfElement="list" taskValue="" />);
         const inputEl = screen.getByLabelText(/add new list/i);
-        expect(inputEl).toHaveClass('inputName hideInput');
+        expect(inputEl).toHaveClass('inputContainer__inputName inputContainer__inputName_hideInput');
         userEvent.click(inputEl);
-        expect(inputEl).toHaveClass('inputName');
+        expect(inputEl).toHaveClass('inputContainer__inputName');
         fireEvent.keyPress(inputEl, { key: 'Enter', keyCode: 13 });
-        expect(inputEl).toHaveClass('inputName hideInput');
+        expect(inputEl).toHaveClass('inputContainer__inputName inputContainer__inputName_hideInput');
     });
 
     test('List input - show and hide(with tab) input field', () => {
         render(<InputField index={0} typeOfElement="list" taskValue="" />);
         const inputEl = screen.getByLabelText(/add new list/i);
-        expect(inputEl).toHaveClass('inputName hideInput');
+        expect(inputEl).toHaveClass('inputContainer__inputName inputContainer__inputName_hideInput');
         userEvent.click(inputEl);
-        expect(inputEl).toHaveClass('inputName');
+        expect(inputEl).toHaveClass('inputContainer__inputName');
         userEvent.tab();
-        expect(inputEl).toHaveClass('inputName hideInput');
+        expect(inputEl).toHaveClass('inputContainer__inputName inputContainer__inputName_hideInput');
     });
 
     test('List input - input some value', () => {
@@ -48,21 +48,21 @@ describe('Input field component', () => {
     test('Task input - show and hide(with enter) input field', () => {
         render(<InputField index={[0, 0]} typeOfElement="task" taskValue="0 123" />);
         const inputEl = screen.getByLabelText(/add new task/i);
-        expect(inputEl).toHaveClass('inputName hideInput');
+        expect(inputEl).toHaveClass('inputContainer__inputName inputContainer__inputName_hideInput');
         userEvent.click(inputEl);
-        expect(inputEl).toHaveClass('inputName');
+        expect(inputEl).toHaveClass('inputContainer__inputName');
         fireEvent.keyPress(inputEl, { key: 'Enter', keyCode: 13 });
-        expect(inputEl).toHaveClass('inputName hideInput');
+        expect(inputEl).toHaveClass('inputContainer__inputName inputContainer__inputName_hideInput');
     });
 
     test('Task input - show and hide(with tab) input field', () => {
         render(<InputField index={[0, 0]} typeOfElement="task" taskValue="0 123" />);
         const inputEl = screen.getByLabelText(/add new task/i);
-        expect(inputEl).toHaveClass('inputName hideInput');
+        expect(inputEl).toHaveClass('inputContainer__inputName inputContainer__inputName_hideInput');
         userEvent.click(inputEl);
-        expect(inputEl).toHaveClass('inputName');
+        expect(inputEl).toHaveClass('inputContainer__inputName');
         userEvent.tab();
-        expect(inputEl).toHaveClass('inputName hideInput');
+        expect(inputEl).toHaveClass('inputContainer__inputName inputContainer__inputName_hideInput');
     });
 
     test('Task input -input some value', () => {

@@ -10,7 +10,7 @@ Object {
       >
         <input
           aria-label="add new list"
-          class="inputName hideInput"
+          class="inputContainer__inputName inputContainer__inputName_hideInput"
           data-elemkey="0"
           maxlength="44"
           type="text"
@@ -25,7 +25,7 @@ Object {
     >
       <input
         aria-label="add new list"
-        class="inputName hideInput"
+        class="inputContainer__inputName inputContainer__inputName_hideInput"
         data-elemkey="0"
         maxlength="44"
         type="text"
@@ -97,7 +97,7 @@ Object {
       >
         <input
           aria-label="add new task"
-          class="inputName hideInput"
+          class="inputContainer__inputName inputContainer__inputName_hideInput"
           data-elemkey="0,0"
           maxlength="44"
           type="text"
@@ -112,7 +112,7 @@ Object {
     >
       <input
         aria-label="add new task"
-        class="inputName hideInput"
+        class="inputContainer__inputName inputContainer__inputName_hideInput"
         data-elemkey="0,0"
         maxlength="44"
         type="text"
