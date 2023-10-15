@@ -1,0 +1,13 @@
+@import '../../../../../templates.scss';
+
+.dragging-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include optionBtn(
+    $bgColor: rgba(205, 205, 205, 0.793),
+    $bgColorHover: rgb(80, 168, 246),
+    $isIconBtn: false,
+  );
+}

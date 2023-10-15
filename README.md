@@ -4,7 +4,8 @@ In this planner you can create lists/tasks, move them around, add lists/tasks, r
 
 Online demo: https://relativelie.github.io/my_trello/
 
-Used: 
+Used:
+
 - typescript
 - react
 - redux
@@ -13,18 +14,21 @@ Used:
 - jest tests
 
 ## How to build
+
 1. Clone repository
-``git clone git@github.com:Relativelie/my_trello.git /path/to/map``
-``cd  /path/to/map ``
+   `git clone git@github.com:Relativelie/my_trello.git /path/to/map`
+   `cd  /path/to/map `
 2. Install dependencies
-``npm install ``
+   `npm install `
 3. Build project
-``npm run deploy``
+   `npm run deploy`
 
 ## How to start
-1. Run project 
-``npm start ``
+
+1. Run project
+   `npm start `
 
 ## How to test
-1. Running tests with: 
-`` npm test`` 
+
+1. Running tests with:
+   ` npm test`

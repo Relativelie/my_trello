@@ -1,0 +1,14 @@
+@import '../../../templates';
+
+.add-task-container {
+  position: relative;
+  width: 100%;
+  height: 4em;
+
+  & div {
+    width: 100%;
+    height: $addListHeight;
+    margin-bottom: $addListMargin;
+    position: fixed;
+  }
+}

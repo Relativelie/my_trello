@@ -5,28 +5,33 @@ $tasksTextSize: clamp(13px, 2vw, 15px);
 $addListHeight: 50px;
 $addListMargin: 30px;
 $menuHeight: 40px;
-
+$brandColor: rgba(6, 255, 168, 0.706);
+$hoveredBrandColor: rgba(6, 255, 168, 0.925);
 
 @mixin inputNames($gridColumns) {
-    display: grid;
-    grid-template-areas: "name";
-    grid-template-columns: $gridColumns;
+  display: grid;
+  grid-template-areas: 'name';
+  grid-template-columns: $gridColumns;
 }
 
-
-@mixin optionBtn($bgColor, $bgColorHover) {
+@mixin optionBtn($bgColor, $bgColorHover, $isIconBtn) {
+  position: relative;
+  @if $isIconBtn {
     width: 25px;
     height: 25px;
-    margin: 0 3px;
-    border-radius: 45%;
-    border: 1px solid rgba(255, 255, 255, 0.566);
-    color: $textColor;
-    background-color: $bgColor;
-    cursor: pointer;
+  } @else {
+    width: 23px;
+    height: 23px;
+  }
 
-    &:hover {
-        box-shadow: 0 1px 10px rgba(255, 255, 255, 0.339);
-        background-color: $bgColorHover;
-    }
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.566);
+  color: $textColor;
+  background-color: $bgColor;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 1px 10px rgba(255, 255, 255, 0.339);
+    background-color: $bgColorHover;
+  }
 }
-

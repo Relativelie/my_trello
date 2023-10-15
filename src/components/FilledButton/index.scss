@@ -1,0 +1,17 @@
+@import "../../templates.scss";
+
+.filled-button {
+  width: 100%;
+  height: 50px;
+  border: 1px solid rgb(255, 255, 255);
+  background-color: $brandColor;
+  transition: all 0.2s ease;
+  font-family: $fontText;
+  font-size: $listTextSize;
+  cursor: pointer;
+}
+
+.filled-button:hover {
+  background-color: $hoveredBrandColor;
+  box-shadow: 0 1px 10px rgba(255, 255, 255, 0.797);
+}

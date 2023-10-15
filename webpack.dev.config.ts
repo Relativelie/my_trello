@@ -43,6 +43,13 @@ const config: Configuration = {
                     "sass-loader",
                 ],
             },
+
+            {
+                test: /\.(jpg|png)$/,
+                use: {
+                  loader: 'url-loader',
+                },
+              },
         ],
     },
     resolve: {

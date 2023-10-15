@@ -3,7 +3,7 @@ import * as inputFieldCreators from './inputFieldActions';
 import * as tasksActionCreators from './tasksActions';
 
 export default {
-    ...listOfTasksActionCreators,
-    ...inputFieldCreators,
-    ...tasksActionCreators,
+  ...listOfTasksActionCreators,
+  ...inputFieldCreators,
+  ...tasksActionCreators,
 };

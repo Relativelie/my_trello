@@ -1,0 +1,15 @@
+@import '../../../../../templates';
+
+.subtask {
+  @include inputNames($gridColumns: 260px);
+}
+
+.subtask_title {
+  grid-area: name;
+
+  & p {
+    font-size: $tasksTextSize;
+    font-family: $fontText;
+    color: $textColor;
+  }
+}

@@ -1,7 +1,9 @@
-window.matchMedia = window.matchMedia || function () {
+window.matchMedia =
+  window.matchMedia ||
+  function () {
     return {
-        matches: false,
-        addListener() { },
-        removeListener() { },
+      matches: false,
+      addListener() {},
+      removeListener() {},
     };
-};
+  };

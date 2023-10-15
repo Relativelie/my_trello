@@ -1,0 +1,33 @@
+@import '../../templates.scss';
+
+.icon-button {
+  padding: 1px;
+}
+
+.deleting-icon-button {
+  @include optionBtn(
+    $bgColor: rgba(253, 161, 161, 0.624),
+    $bgColorHover: rgb(253, 52, 52),
+    $isIconBtn: true,
+  );
+}
+
+.common-icon-button {
+  @include optionBtn(
+    $bgColor: rgba(205, 205, 205, 0.793),
+    $bgColorHover: rgb(80, 168, 246),
+    $isIconBtn: true,
+  );
+}
+
+.icon-button_icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  & svg,
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -5,13 +5,11 @@ import { inputFieldReducer } from './inputFieldReducer';
 import { tasksReducer } from './tasksReducer';
 
 export const reducers = {
-    listOfTasksReducer,
-    inputFieldReducer,
-    tasksReducer,
+  listOfTasksReducer,
+  inputFieldReducer,
+  tasksReducer,
 };
 
-export const rootReducer = combineReducers(
-    reducers,
-);
+export const rootReducer = combineReducers(reducers);
 
 export type RootState = ReturnType<typeof rootReducer>;
