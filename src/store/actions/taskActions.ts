@@ -1,7 +1,7 @@
 import {
   ListOfTasksAction,
   ListOfTasksActionTypes,
-} from '../../types/listOfTasksTypes';
+} from '../../types/tasksTypes';
 
 export const addNewList = (): ListOfTasksAction => ({
   type: ListOfTasksActionTypes.ADD_NEW_LIST,

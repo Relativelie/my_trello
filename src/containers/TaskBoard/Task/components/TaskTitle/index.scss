@@ -1,14 +1,14 @@
 @import '../../../../../templates';
 
-.subtask-title-container {
-  @include inputNames($gridColumns: 260px);
+.task-title-container {
+  @include inputNames($gridColumns: 300px);
 }
 
-.subtask_title {
+.task-title {
   grid-area: name;
 
   & p {
-    font-size: $tasksTextSize;
+    font-size: $listTextSize;
     font-family: $fontText;
     color: $textColor;
   }

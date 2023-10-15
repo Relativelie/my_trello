@@ -2,7 +2,7 @@ import {
   ListOfTasksAction,
   ListOfTasksActionTypes,
   ListOfTasksState,
-} from '../../types/listOfTasksTypes';
+} from '../../types/tasksTypes';
 
 const initialState: ListOfTasksState = {
   lists: [],

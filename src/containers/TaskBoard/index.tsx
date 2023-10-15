@@ -24,7 +24,7 @@ export default function TaskBoard() {
     if (e.destination !== undefined && e.destination !== null) {
       const indexTo = e.destination.index;
       const indexFrom = e.source.index;
-      if (e.type === 'lists') {
+      if (e.type === 'tasks') {
         dragDropList(indexTo, indexFrom);
         dragDropListWithTasks(indexTo, indexFrom);
       } else {
@@ -48,7 +48,7 @@ export default function TaskBoard() {
     <main>
       <AddTaskButton onClick={onClickAddTask} />
       <DragDropContext onDragEnd={(e) => handleOnDragEnd(e)}>
-        <Droppable droppableId="lists" type="lists" direction="horizontal">
+        <Droppable droppableId="tasks" type="tasks" direction="horizontal">
           {(provided) => (
             <div
               className="listsBlock"

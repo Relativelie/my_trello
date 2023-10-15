@@ -26,7 +26,7 @@ export const inputFieldReducer = (
         return {
           ...state,
         };
-      } else if (action.typeOfElement === 'list') {
+      } else if (action.typeOfElement === 'task') {
         return {
           ...state,
           isCorrectListName: true,
@@ -44,7 +44,7 @@ export const inputFieldReducer = (
     }
 
     case InputFieldActionTypes.TURN_OFF_NAME_VALIDATION:
-      if (action.typeOfElement === 'task') {
+      if (action.typeOfElement === 'subtask') {
         return {
           ...state,
           currentName: '',
@@ -52,7 +52,7 @@ export const inputFieldReducer = (
           indexOfRenamedElem: [],
           newName: null,
         };
-      } else if (action.typeOfElement === 'list') {
+      } else if (action.typeOfElement === 'task') {
         return {
           ...state,
           currentName: '',

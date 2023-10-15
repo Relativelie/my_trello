@@ -1,13 +1,14 @@
 import { FC, useEffect } from 'react';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 
-import { AppIconButton, InputField } from '../../../components';
+import { AppIconButton } from '../../../components';
 import { useActions } from '../../../hooks/useActions';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
-import AddSubtaskForm from '../AddSubtaskForm';
+import AddSubtaskForm from './components/AddSubtaskForm';
 
 import './index.scss';
 import Icon from '../../../assets/icons/Close';
+import TaskTitle from './components/TaskTitle';
 
 type TaskProps = {
   index: number;
@@ -24,7 +25,7 @@ const Task: FC<TaskProps> = ({ children, index, list }) => {
   useEffect(() => {
     if (isCorrectListName && newName != null && indexOfRenamedElem.length) {
       renameList(newName, parseInt(indexOfRenamedElem[0], 10));
-      nameValidationOff('list');
+      nameValidationOff('subtask');
     }
   }, [isCorrectListName]);
 
@@ -34,22 +35,17 @@ const Task: FC<TaskProps> = ({ children, index, list }) => {
   };
 
   return (
-    <Draggable draggableId={`listBeing-${index}`} index={index}>
+    <Draggable draggableId={`taskItem-${index}`} index={index}>
       {(provided) => (
         <div
-          className="list"
+          className="task"
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
         >
           <div>
-            <div className="list__options">
-              <div className="options__listNameBlock">
-                <div className="options__listName options__listName_visibleName">
-                  <p>{list}</p>
-                </div>
-                <InputField index={index} typeOfElement="list" taskValue="" />
-              </div>
+            <div className="task_actions-container">
+              <TaskTitle title={list} index={index} />
               <AppIconButton
                 onClick={() => {
                   removeListWithTasks(index);
@@ -58,11 +54,13 @@ const Task: FC<TaskProps> = ({ children, index, list }) => {
                 <Icon />
               </AppIconButton>
             </div>
+
             <AddSubtaskForm indexOfList={index} />
-            <Droppable droppableId={`listArea-${index}`} type="tasks">
+
+            <Droppable droppableId={`taskArea-${index}`} type="subtasks">
               {(taskProvided) => (
                 <div
-                  className="list__taskDropArea list__taskDropArea_scrollbar"
+                  className="task_subtask-container"
                   {...taskProvided.droppableProps}
                   ref={taskProvided.innerRef}
                 >

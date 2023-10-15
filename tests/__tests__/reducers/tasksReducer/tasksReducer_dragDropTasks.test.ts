@@ -1,17 +1,17 @@
-import { dragDropTasks } from "../../../../src/store/actions/tasksActions";
-import { tasksReducer } from "../../../../src/store/reducers/tasksReducer";
-import { TasksState } from "../../../../src/types/tasksTypes";
+import { dragDropTasks } from '../../../../src/store/actions/subtaskActions';
+import { tasksReducer } from '../../../../src/store/reducers/tasksReducer';
+import { TasksState } from '../../../../src/types/subtaskTypes';
 
 let nonEmptyTasksState: TasksState;
 
 beforeEach(() => {
   nonEmptyTasksState = {
-    tasks: [["24", "fvf"], ["123", "scвс", "йцу"], ["dfv"]],
+    tasks: [['24', 'fvf'], ['123', 'scвс', 'йцу'], ['dfv']],
   };
 });
 
-describe("tasks reducer - drag and drop tasks", () => {
-  test("dnd list to < list from", () => {
+describe('tasks reducer - drag and drop tasks', () => {
+  test('dnd list to < list from', () => {
     const listTo = 1;
     const listFrom = 2;
     const taskTo = 1;
@@ -23,11 +23,11 @@ describe("tasks reducer - drag and drop tasks", () => {
     );
 
     expect(newState).toStrictEqual({
-      tasks: [["24", "fvf"], ["123", "dfv", "scвс", "йцу"], []],
+      tasks: [['24', 'fvf'], ['123', 'dfv', 'scвс', 'йцу'], []],
     });
   });
 
-  test("dnd list to > list from", () => {
+  test('dnd list to > list from', () => {
     const listTo = 2;
     const listFrom = 0;
     const taskTo = 0;
@@ -39,11 +39,11 @@ describe("tasks reducer - drag and drop tasks", () => {
     );
 
     expect(newState).toStrictEqual({
-      tasks: [["24"], ["123", "scвс", "йцу"], ["fvf", "dfv"]],
+      tasks: [['24'], ['123', 'scвс', 'йцу'], ['fvf', 'dfv']],
     });
   });
 
-  test("dnd task to < task from", () => {
+  test('dnd task to < task from', () => {
     const listTo = 2;
     const listFrom = 0;
     const taskTo = 0;
@@ -55,11 +55,11 @@ describe("tasks reducer - drag and drop tasks", () => {
     );
 
     expect(newState).toStrictEqual({
-      tasks: [["24"], ["123", "scвс", "йцу"], ["fvf", "dfv"]],
+      tasks: [['24'], ['123', 'scвс', 'йцу'], ['fvf', 'dfv']],
     });
   });
 
-  test("dnd list to < 0", () => {
+  test('dnd list to < 0', () => {
     const listTo = -2;
     const listFrom = 0;
     const taskTo = 0;
@@ -75,7 +75,7 @@ describe("tasks reducer - drag and drop tasks", () => {
     });
   });
 
-  test("dnd list from < 0", () => {
+  test('dnd list from < 0', () => {
     const listTo = 2;
     const listFrom = 0;
     const taskTo = 0;

@@ -34,7 +34,7 @@ const SubTask: FC<SubTaskProps> = ({ subtaskIndex, taskIndex, task }) => {
 
   return (
     <Draggable
-      draggableId={`task-${subtaskIndex}-${taskIndex}`}
+      draggableId={`subtask-${subtaskIndex}-${taskIndex}`}
       index={subtaskIndex}
     >
       {(provided) => (

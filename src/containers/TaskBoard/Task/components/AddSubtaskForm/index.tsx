@@ -1,5 +1,5 @@
 import { FC, useRef } from 'react';
-import { useActions } from '../../../hooks/useActions';
+import { useActions } from '../../../../../hooks/useActions';
 
 import './index.scss';
 

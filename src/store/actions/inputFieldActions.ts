@@ -3,7 +3,6 @@ import {
   InputFieldAction,
 } from '../../types/inputFieldTypes';
 
-// eslint-disable-next-line max-len
 export const nameValidationOn = (
   nameValue: string,
   index: string[],

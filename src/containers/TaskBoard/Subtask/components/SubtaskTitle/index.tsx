@@ -13,13 +13,13 @@ const SubtaskTitle: React.FC<SubtaskTitleProps> = ({
   title,
 }) => {
   return (
-    <div className="subtask" data-taskindex={subtaskIndex}>
+    <div className="subtask-title-container" data-taskindex={subtaskIndex}>
       <div className="subtask_title">
         <p>{title}</p>
       </div>
       <InputField
         index={[taskIndex, subtaskIndex]}
-        typeOfElement="task"
+        typeOfElement="subtask"
         taskValue={title}
       />
     </div>

@@ -3,18 +3,18 @@ import {
   dragDropList,
   removeList,
   renameList,
-} from "../../../src/store/actions/listOfTasksActions";
-import { ListOfTasksActionTypes } from "../../../src/types/listOfTasksTypes";
+} from '../../../src/store/actions/taskActions';
+import { ListOfTasksActionTypes } from '../../../src/types/tasksTypes';
 
-describe("list of tasks actions", () => {
-  test("action to add new list", () => {
+describe('list of tasks actions', () => {
+  test('action to add new list', () => {
     expect(addNewList()).toEqual({
       type: ListOfTasksActionTypes.ADD_NEW_LIST,
     });
   });
 
-  test("action to rename list", () => {
-    const name = "list name";
+  test('action to rename list', () => {
+    const name = 'list name';
     const index = 1;
     expect(renameList(name, index)).toEqual({
       type: ListOfTasksActionTypes.RENAME_LIST,
@@ -23,7 +23,7 @@ describe("list of tasks actions", () => {
     });
   });
 
-  test("action to remove list", () => {
+  test('action to remove list', () => {
     const index = 1;
     expect(removeList(index)).toEqual({
       type: ListOfTasksActionTypes.REMOVE_LIST,
@@ -31,7 +31,7 @@ describe("list of tasks actions", () => {
     });
   });
 
-  test("action to drag and drop list", () => {
+  test('action to drag and drop list', () => {
     const indexFrom = 1;
     const indexTo = 0;
     expect(dragDropList(indexTo, indexFrom)).toEqual({

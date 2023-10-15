@@ -1,28 +1,28 @@
-import { TaskAction, TasksActionTypes } from '../../types/tasksTypes';
+import { TaskAction, TasksActionTypes } from '../../types/subtaskTypes';
 
-export const removeTask = (
-  indexOfList: number,
+export const removeSubtask = (
   indexOfTask: number,
+  indexOfSubtask: number,
 ): TaskAction => ({
   type: TasksActionTypes.REMOVE_TASK,
-  indexOfList,
   indexOfTask,
+  indexOfSubtask,
 });
 
-export const addTask = (name: string, indexOfList: number): TaskAction => ({
+export const addTask = (name: string, indexOfTask: number): TaskAction => ({
   type: TasksActionTypes.ADD_NEW_TASK,
   name,
-  indexOfList,
+  indexOfTask,
 });
 
 export const renameTask = (
-  indexOfList: number,
   indexOfTask: number,
+  indexOfSubtask: number,
   value: string,
 ): TaskAction => ({
   type: TasksActionTypes.RENAME_TASK,
-  indexOfList,
   indexOfTask,
+  indexOfSubtask,
   value,
 });
 
@@ -35,26 +35,25 @@ export const dragDropListWithTasks = (
   indexFrom,
 });
 
-// eslint-disable-next-line max-len
 export const dragDropTasks = (
-  listTo: number,
-  listFrom: number,
+  taskTo: number,
+  taskFrom: number,
   indexTo: number,
   indexFrom: number,
 ): TaskAction => ({
   type: TasksActionTypes.DRAG_DROP_TASKS,
-  listTo,
-  listFrom,
+  taskTo,
+  taskFrom,
   indexTo,
   indexFrom,
 });
 
-export const removeAllTasksFromList = (indexOfList: number): TaskAction => ({
+export const removeAllTasksFromList = (indexOfTask: number): TaskAction => ({
   type: TasksActionTypes.REMOVE_ALL_TASKS_FROM_LIST,
-  indexOfList,
+  indexOfTask,
 });
 
-export const addTaskArrayToNewList = (listIndex: number): TaskAction => ({
+export const addTaskArrayToNewList = (taskIndex: number): TaskAction => ({
   type: TasksActionTypes.ADD_TASK_ARRAY_TO_NEWLIST,
-  listIndex,
+  taskIndex,
 });
