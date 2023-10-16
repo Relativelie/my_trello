@@ -16,10 +16,11 @@ dd {
 }
 
 body {
+  // background-color: aquamarine;
   width: min-content;
   height: 100vh;
   background-attachment: fixed;
   background-position: inherit;
   background-size: cover;
-  background-image: url("./assets/jpg/bg-image.jpg");
+  background-image: url("../assets/jpg/bg-image.jpg");
 }

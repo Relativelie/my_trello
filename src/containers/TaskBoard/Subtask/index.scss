@@ -1,9 +1,7 @@
-@import "../../../templates";
+@import '../../../styles/templates.scss';
 
 .subtask-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
-

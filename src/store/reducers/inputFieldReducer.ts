@@ -12,7 +12,6 @@ const initialState: InputFieldState = {
   currentName: '',
 };
 
-// eslint-disable-next-line max-len
 export const inputFieldReducer = (
   state = initialState,
   action: InputFieldAction,

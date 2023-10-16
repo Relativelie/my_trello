@@ -1,36 +1,38 @@
-import { Children } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
 
-import { useActions } from '../../hooks/useActions';
-import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 import './index.scss';
 import AddTaskButton from './AddTaskButton';
 import Task from './Task';
 import SubTask from './Subtask';
 
+import { getTasks } from '../../store_two/task/selectors';
+import { addTask } from '../../store_two/task/slice';
+
 export default function TaskBoard() {
-  const {
-    dragDropList,
-    dragDropListWithTasks,
-    dragDropTasks,
-    addNewList,
-    addTaskArrayToNewList,
-  } = useActions();
-  const { lists } = useTypedSelector((state) => state.listOfTasksReducer);
-  const { tasks } = useTypedSelector((tasksState) => tasksState.tasksReducer);
+  // const {
+  //   dragDropList,
+  //   dragDropListWithTasks,
+  //   dragDropTasks,
+  //   addNewList,
+  //   addTaskArrayToNewList,
+  // } = useActions();
+  const tasks = useSelector(getTasks);
+  const dispatch = useDispatch();
+  // const { tasks } = useTypedSelector((tasksState) => tasksState.tasksReducer);
 
   const handleOnDragEnd = (e: DropResult) => {
     if (e.destination !== undefined && e.destination !== null) {
       const indexTo = e.destination.index;
       const indexFrom = e.source.index;
       if (e.type === 'tasks') {
-        dragDropList(indexTo, indexFrom);
-        dragDropListWithTasks(indexTo, indexFrom);
+        // dragDropList(indexTo, indexFrom);
+        // dragDropListWithTasks(indexTo, indexFrom);
       } else {
         const listFrom = getValueFromStr(e.source.droppableId, 9);
         const listTo = getValueFromStr(e.destination.droppableId, 9);
-        dragDropTasks(listTo, listFrom, indexTo, indexFrom);
+        // dragDropTasks(listTo, listFrom, indexTo, indexFrom);
       }
     }
   };
@@ -40,8 +42,9 @@ export default function TaskBoard() {
   };
 
   const onClickAddTask = () => {
-    addNewList();
-    addTaskArrayToNewList(lists.length);
+    dispatch(addTask());
+    // addNewList();
+    // addTaskArrayToNewList(lists.length);
   };
 
   return (
@@ -51,23 +54,30 @@ export default function TaskBoard() {
         <Droppable droppableId="tasks" type="tasks" direction="horizontal">
           {(provided) => (
             <div
-              className="listsBlock"
+              className="task-container"
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
-              <div className="listsBlock__container">
-                {lists.map((list: string, listIndex: number) => (
-                  <Task key={listIndex} list={list} index={listIndex}>
-                    {Children.map(tasks[listIndex], (child, taskIndex) => (
+              {Object.keys(tasks).map((key) => {
+                const taskIndex = parseInt(key, 10);
+                console.log('aaaa', tasks[taskIndex].name);
+                return (
+                  // <p>{tasks[taskIndex].name}</p>
+                  <Task
+                    key={key}
+                    list={tasks[taskIndex].name}
+                    index={taskIndex}
+                  >
+                    {/* {tasks[taskIndex].subtasks.map((item, index) => (
                       <SubTask
-                        taskIndex={listIndex}
-                        subtaskIndex={taskIndex}
-                        task={child}
+                        taskIndex={taskIndex}
+                        subtaskIndex={index}
+                        task={item}
                       />
-                    ))}
+                    ))} */}
                   </Task>
-                ))}
-              </div>
+                );
+              })}
               {provided.placeholder}
             </div>
           )}

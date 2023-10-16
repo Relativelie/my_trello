@@ -1,11 +1,7 @@
-@import "../../templates";
+@import '../../styles/templates.scss';
 
-.listsBlock {
+.task-container {
   display: flex;
   width: 110%;
-}
-
-.listsBlock__container {
-  display: flex;
   height: calc(100vh - ($addListMargin + $addListHeight + $menuHeight));
 }

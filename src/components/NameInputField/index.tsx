@@ -5,16 +5,16 @@ import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 import './index.scss';
 
-interface InputFieldProps {
+interface NameInputFieldProps {
   index: number[] | number;
   typeOfElement: string;
-  taskValue: string;
+  value: string;
 }
 
-const InputField: React.FC<InputFieldProps> = ({
+const NameInputField: React.FC<NameInputFieldProps> = ({
   index,
   typeOfElement,
-  taskValue,
+  value,
 }) => {
   const { nameValidationOn, showCurrentValueInInput } = useActions();
   const { lists } = useTypedSelector((state) => state.listOfTasksReducer);
@@ -42,7 +42,7 @@ const InputField: React.FC<InputFieldProps> = ({
     let inputValue;
     if (typeof index === 'number') {
       inputValue = lists[index];
-    } else inputValue = taskValue;
+    } else inputValue = value;
     showCurrentValueInInput(inputValue);
     e.target.classList.remove('inputContainer__inputName_hideInput');
   };
@@ -69,4 +69,4 @@ const InputField: React.FC<InputFieldProps> = ({
   );
 };
 
-export default InputField;
+export default NameInputField;

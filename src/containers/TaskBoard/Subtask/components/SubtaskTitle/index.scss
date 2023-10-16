@@ -1,4 +1,4 @@
-@import '../../../../../templates';
+@import '../../../../../styles/templates.scss';
 
 .subtask-title-container {
   @include inputNames($gridColumns: 260px);

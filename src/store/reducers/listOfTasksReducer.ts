@@ -8,7 +8,6 @@ const initialState: ListOfTasksState = {
   lists: [],
 };
 
-// eslint-disable-next-line max-len
 export const listOfTasksReducer = (
   state = initialState,
   action: ListOfTasksAction,

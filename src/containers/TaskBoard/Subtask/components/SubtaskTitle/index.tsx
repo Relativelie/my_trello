@@ -20,7 +20,7 @@ const SubtaskTitle: React.FC<SubtaskTitleProps> = ({
       <InputField
         index={[taskIndex, subtaskIndex]}
         typeOfElement="subtask"
-        taskValue={title}
+        value={title}
       />
     </div>
   );

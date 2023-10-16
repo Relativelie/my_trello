@@ -13,7 +13,7 @@ const TaskTitle: React.FC<TaskTitleProps> = ({ title, index }) => {
       <div className="task-title">
         <p>{title}</p>
       </div>
-      <InputField index={index} typeOfElement="task" taskValue="" />
+      <InputField index={index} typeOfElement="task" value="" />
     </div>
   );
 };
