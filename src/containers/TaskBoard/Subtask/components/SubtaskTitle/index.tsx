@@ -1,4 +1,8 @@
-import { InputField } from '../../../../../components';
+import { useDispatch } from 'react-redux';
+
+import { AppNameInput } from '@components/index';
+import { renameSubtask } from '@store/task/slice';
+
 import './index.scss';
 
 type SubtaskTitleProps = {
@@ -12,16 +16,18 @@ const SubtaskTitle: React.FC<SubtaskTitleProps> = ({
   taskIndex,
   title,
 }) => {
+  const dispatch = useDispatch();
+
+  const onChange = (name: string) => {
+    dispatch(renameSubtask({ name, subtaskIndex, taskIndex }));
+  };
+
   return (
     <div className="subtask-title-container" data-taskindex={subtaskIndex}>
       <div className="subtask_title">
         <p>{title}</p>
       </div>
-      <InputField
-        index={[taskIndex, subtaskIndex]}
-        typeOfElement="subtask"
-        value={title}
-      />
+      <AppNameInput initialValue={title} onChange={onChange} />
     </div>
   );
 };

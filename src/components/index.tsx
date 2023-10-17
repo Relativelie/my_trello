@@ -1,13 +1,7 @@
 import FilledButton from './FilledButton';
 import AppIconButton from './IconButton';
-import NameInputField from './NameInputField';
+import AppNameInput from './NameInput';
 import Menu from './Menu';
 import OutlinedButton from './OutlinedButton';
 
-export {
-  OutlinedButton,
-  Menu,
-  NameInputField as InputField,
-  AppIconButton,
-  FilledButton,
-};
+export { OutlinedButton, Menu, AppNameInput, AppIconButton, FilledButton };

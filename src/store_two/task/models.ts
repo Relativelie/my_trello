@@ -1,34 +1,11 @@
 import { PayloadAction } from '@reduxjs/toolkit';
+import TaskEntity from './TaskEntity';
 
 export type TaskBoardState = {
   tasks: {
-    [key: number]: Task;
+    [key: number]: TaskEntity;
   };
 };
-
-export class Task {
-  name: string;
-  subtasks: string[];
-
-  constructor(name: string, subtasks: string[] = []) {
-    this.name = name;
-    this.subtasks = subtasks;
-  }
-
-  static create(): Task {
-    const name = 'Write the name of the task';
-    return new Task(name, []);
-  }
-
-  static addSubtask(task: Task, subtask: string): Task {
-    const newSubtasks = [...task.subtasks, subtask];
-    return new Task(task.name, newSubtasks);
-  }
-
-  static rename(task: Task, name: string): Task {
-    return new Task(name, task.subtasks);
-  }
-}
 
 export type TaskBoardReducers = {
   addTask: (state: TaskBoardState) => void;
@@ -37,8 +14,33 @@ export type TaskBoardReducers = {
     action: PayloadAction<{ name: string; index: number }>,
   ) => void;
   removeTask: (state: TaskBoardState, action: PayloadAction<number>) => void;
+  renameSubtask: (
+    state: TaskBoardState,
+    action: PayloadAction<{
+      name: string;
+      subtaskIndex: number;
+      taskIndex: number;
+    }>,
+  ) => void;
+  removeSubtask: (
+    state: TaskBoardState,
+    action: PayloadAction<{ taskIndex: number; subtaskIndex: number }>,
+  ) => void;
+  addSubtask: (
+    state: TaskBoardState,
+    action: PayloadAction<{ taskIndex: number; name: string }>,
+  ) => void;
   dragDropTask: (
     state: TaskBoardState,
     action: PayloadAction<{ indexTo: number; indexFrom: number }>,
+  ) => void;
+  dragDropSubtask: (
+    state: TaskBoardState,
+    action: PayloadAction<{
+      toIndexTask: number;
+      fromIndexTask: number;
+      toIndexSubtask: number;
+      fromIndexSubtask: number;
+    }>,
   ) => void;
 };

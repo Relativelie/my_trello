@@ -1,14 +1,14 @@
 @import "../../styles/templates";
 
-.inputContainer {
+.name-input-container {
   grid-area: name;
 }
 
-.inputContainer__inputName {
+.name-input {
   width: 95%;
   cursor: pointer;
 }
 
-.inputContainer__inputName_hideInput {
+.name-input_hideInput {
   opacity: 0;
 }

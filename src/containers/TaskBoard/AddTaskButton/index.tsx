@@ -1,4 +1,4 @@
-import { FilledButton } from '../../../components';
+import { FilledButton } from '@components/index';
 import './index.scss';
 
 type AddTaskButtonProps = {

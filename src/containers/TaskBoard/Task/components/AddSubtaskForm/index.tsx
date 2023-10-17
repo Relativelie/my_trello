@@ -1,20 +1,20 @@
-import { FC, useRef } from 'react';
-import { useActions } from '../../../../../hooks/useActions';
+import { useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { addSubtask } from '@store/task/slice';
 
 import './index.scss';
 
 type AddSubtaskFormProps = {
-  indexOfList: number;
+  taskIndex: number;
 };
 
-const AddSubtaskForm: FC<AddSubtaskFormProps> = ({ indexOfList }) => {
-  const { addTask, addTaskArrayToNewList } = useActions();
+const AddSubtaskForm: React.FC<AddSubtaskFormProps> = ({ taskIndex }) => {
   const myRef = useRef<HTMLInputElement>(null);
+  const dispatch = useDispatch();
 
   const taskAdding = (e: string) => {
     if ((e === 'click' || e === 'Enter') && myRef.current !== null) {
-      addTaskArrayToNewList(indexOfList);
-      addTask(myRef.current.value, indexOfList);
+      dispatch(addSubtask({ taskIndex, name: myRef.current.value }));
       myRef.current.value = '';
     }
   };

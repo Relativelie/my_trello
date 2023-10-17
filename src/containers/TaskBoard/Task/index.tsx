@@ -1,38 +1,22 @@
-import { FC, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 
-import { AppIconButton } from '../../../components';
-import { useActions } from '../../../hooks/useActions';
-import { useTypedSelector } from '../../../hooks/useTypedSelector';
+import { AppIconButton } from '@components/index';
+import { removeTask } from '@store/task/slice';
+import Icon from '@assets/icons/Close';
+
 import AddSubtaskForm from './components/AddSubtaskForm';
+import TaskTitle from './components/TaskTitle';
 
 import './index.scss';
-import Icon from '../../../assets/icons/Close';
-import TaskTitle from './components/TaskTitle';
 
 type TaskProps = {
   index: number;
-  list: string;
+  title: string;
 };
 
-const Task: FC<TaskProps> = ({ children, index, list }) => {
-  const { nameValidationOff, renameList, removeList, removeAllTasksFromList } =
-    useActions();
-  const { isCorrectListName, newName, indexOfRenamedElem } = useTypedSelector(
-    (inputFieldState) => inputFieldState.inputFieldReducer,
-  );
-
-  useEffect(() => {
-    if (isCorrectListName && newName != null && indexOfRenamedElem.length) {
-      renameList(newName, parseInt(indexOfRenamedElem[0], 10));
-      nameValidationOff('subtask');
-    }
-  }, [isCorrectListName]);
-
-  const removeListWithTasks = (elemIndex: number) => {
-    removeList(elemIndex);
-    removeAllTasksFromList(elemIndex);
-  };
+const Task: React.FC<TaskProps> = ({ children, index, title }) => {
+  const dispatch = useDispatch();
 
   return (
     <Draggable draggableId={`taskItem-${index}`} index={index}>
@@ -45,17 +29,17 @@ const Task: FC<TaskProps> = ({ children, index, list }) => {
         >
           <div>
             <div className="task_actions-container">
-              <TaskTitle title={list} index={index} />
+              <TaskTitle title={title} index={index} />
               <AppIconButton
                 onClick={() => {
-                  removeListWithTasks(index);
+                  dispatch(removeTask(index));
                 }}
               >
                 <Icon />
               </AppIconButton>
             </div>
 
-            <AddSubtaskForm indexOfList={index} />
+            <AddSubtaskForm taskIndex={index} />
 
             <Droppable droppableId={`taskArea-${index}`} type="subtasks">
               {(taskProvided) => (

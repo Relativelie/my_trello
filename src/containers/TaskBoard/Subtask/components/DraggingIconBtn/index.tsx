@@ -1,5 +1,5 @@
 import { DraggableProvidedDragHandleProps } from 'react-beautiful-dnd';
-import DragDropImage from '../../../../../assets/png/drag-drop.png';
+import DragDropImage from '@assets/png/drag-drop.png';
 
 import './index.scss';
 

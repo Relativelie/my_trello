@@ -56,6 +56,13 @@ const config: Configuration = {
     ],
   },
   resolve: {
+    alias: {
+      '@components': path.resolve(__dirname, 'src/components/'),
+      '@containers': path.resolve(__dirname, 'src/containers/'),
+      '@hooks': path.resolve(__dirname, 'src/hooks/'),
+      '@store': path.resolve(__dirname, 'src/store_two/'),
+      '@assets': path.resolve(__dirname, 'src/assets/'),
+    },
     extensions: ['.tsx', '.ts', '.js'],
   },
   plugins: [

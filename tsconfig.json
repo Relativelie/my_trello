@@ -1,6 +1,17 @@
 {
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
+    "baseUrl": "./src/",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@containers/*": ["containers/*"],
+      "@hooks/*": ["hooks/*"],
+      "@store/*": ["store_two/*"],
+      "@assets/*": ["assets/*"],
+      "@/*": [
+        "*"
+      ]
+    },
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,

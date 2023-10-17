@@ -1,36 +1,27 @@
-import { FC, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Draggable } from 'react-beautiful-dnd';
-import { AppIconButton } from '../../../components';
-import { useActions } from '../../../hooks/useActions';
-import { useTypedSelector } from '../../../hooks/useTypedSelector';
-import Icon from '../../../assets/icons/Close';
 
-import './index.scss';
+import { AppIconButton } from '@components/index';
+import Icon from '@assets/icons/Close';
+import { removeSubtask } from '@store/task/slice';
+
 import DraggingIconBtn from './components/DraggingIconBtn';
 import SubtaskTitle from './components/SubtaskTitle';
+
+import './index.scss';
 
 type SubTaskProps = {
   subtaskIndex: number;
   taskIndex: number;
-  task: string;
+  title: string;
 };
 
-const SubTask: FC<SubTaskProps> = ({ subtaskIndex, taskIndex, task }) => {
-  const { nameValidationOff, renameTask, removeTask } = useActions();
-  const { isCorrectTaskName, newName, indexOfRenamedElem } = useTypedSelector(
-    (inputFieldState) => inputFieldState.inputFieldReducer,
-  );
-
-  useEffect(() => {
-    if (isCorrectTaskName && newName != null && indexOfRenamedElem != null) {
-      renameTask(
-        parseInt(indexOfRenamedElem[0], 10),
-        parseInt(indexOfRenamedElem[1], 10),
-        newName,
-      );
-      nameValidationOff('task');
-    }
-  }, [isCorrectTaskName]);
+const SubTask: React.FC<SubTaskProps> = ({
+  subtaskIndex,
+  taskIndex,
+  title,
+}) => {
+  const dispatch = useDispatch();
 
   return (
     <Draggable
@@ -46,12 +37,12 @@ const SubTask: FC<SubTaskProps> = ({ subtaskIndex, taskIndex, task }) => {
           <SubtaskTitle
             subtaskIndex={subtaskIndex}
             taskIndex={taskIndex}
-            title={task}
+            title={title}
           />
           <DraggingIconBtn dragHandleProps={provided.dragHandleProps} />
           <AppIconButton
             onClick={() => {
-              removeTask(taskIndex, subtaskIndex);
+              dispatch(removeSubtask({ taskIndex, subtaskIndex }));
             }}
           >
             <Icon />
