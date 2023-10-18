@@ -1,7 +1,7 @@
-@import '../../../../../styles/templates.scss';
+@import '@styles/templates.scss';
 
 .subtask-title-container {
-  @include inputNames($gridColumns: 260px);
+  @include inputNames($gridColumns: 240px);
 }
 
 .subtask_title {
@@ -10,6 +10,6 @@
   & p {
     font-size: $tasksTextSize;
     font-family: $fontText;
-    color: $textColor;
+    color: $defaultTextColor;
   }
 }

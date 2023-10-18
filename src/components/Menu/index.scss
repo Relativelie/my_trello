@@ -1,4 +1,5 @@
-@import '../../styles/templates';
+@import '@styles/templates';
+@import '@styles/theme.scss';
 
 .menu {
   position: relative;
@@ -12,17 +13,17 @@
   justify-content: space-between;
   box-sizing: border-box;
   width: 100%;
-  padding: 10px;
-  background-color: #021447bb;
+  padding: $smSpacing;
+  background-color: $darkBrandColor;
 }
 
 .menu__header {
-  color: $textColor;
+  color: $defaultTextColor;
   font-family: $fontText;
-  text-shadow: 0 4px 10px #000000;
+  text-shadow: $darkTextShadow;
 
   & a {
-    color: white;
+    color: $defaultTextColor;
   }
 }
 
@@ -30,24 +31,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2em;
+  gap: $mdSpacing;
 
   & h4 {
-    color: $textColor;
+    color: $defaultTextColor;
     font-family: $fontText;
-    text-shadow: 0 4px 10px #000000;
+    text-shadow: $darkTextShadow;
   }
 }
 
 .menu__links {
   display: flex;
   justify-items: center;
-  gap: 2em;
+  gap: $mdSpacing;
 
   & img {
     width: 40px;
     height: 40px;
-    border: 2px solid white;
+    border: 2px solid $defaultColor;
     border-radius: 100%;
     filter: grayscale(1);
   }

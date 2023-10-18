@@ -19,7 +19,7 @@ const AddSubtaskForm: React.FC<AddSubtaskFormProps> = ({ taskIndex }) => {
     if (
       (e === 'click' || e === 'Enter') &&
       myRef.current !== null &&
-      myRef.current.value.length
+      myRef.current.value.trim().length
     ) {
       dispatch(addSubtask({ taskIndex, name: myRef.current.value }));
       myRef.current.value = '';

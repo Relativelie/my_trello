@@ -62,6 +62,7 @@ const config: Configuration = {
       '@hooks': path.resolve(__dirname, 'src/hooks/'),
       '@store': path.resolve(__dirname, 'src/store/'),
       '@assets': path.resolve(__dirname, 'src/assets/'),
+      "@styles": path.resolve(__dirname, "src/styles/"),
     },
     extensions: ['.tsx', '.ts', '.js'],
   },

@@ -1,9 +1,10 @@
-@import '../../../styles/templates';
+@import '@styles/templates';
+@import '@styles/theme';
 
 .add-task-container {
   position: relative;
   width: 100%;
-  height: 4em;
+  height: $lgSpacing;
 
   & div {
     width: 100%;

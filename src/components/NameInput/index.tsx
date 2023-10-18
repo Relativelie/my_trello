@@ -25,7 +25,7 @@ const AppNameInput: React.FC<NameInputProps> = ({ onChange, initialValue }) => {
     const elem = blurEvent.target as HTMLInputElement;
     const newVal = elem.value;
 
-    if (newVal.length && onChange) {
+    if (newVal.trim().length && onChange) {
       onChange(newVal);
     } else {
       setInitialValue();

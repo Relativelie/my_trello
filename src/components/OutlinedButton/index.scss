@@ -1,10 +1,11 @@
-@import '../../styles/templates.scss';
+@import '@styles/templates.scss';
+@import '@styles/theme.scss';
 
 .outlined-button {
-  height: 2em;
+  height: $mdSpacing;
   border: 1px solid $brandColor;
-  color: white;
-  border-radius: 10px;
+  color: $defaultTextColor;
+  border-radius: $smBorderRadius;
   background-color: transparent;
   transition: all 0.2s ease;
   font-family: $fontText;
@@ -15,5 +16,5 @@
 .outlined-button:hover {
   background-color: $hoveredBrandColor;
   box-shadow: 0 1px 10px rgba(255, 255, 255, 0.797);
-  color: black;
+  color: $defaultInverseTextColor;
 }

@@ -1,12 +1,4 @@
-$fontText: 'Roboto', sans-serif;
-$textColor: rgb(255, 255, 255);
-$listTextSize: clamp(15px, 2vw, 18px);
-$tasksTextSize: clamp(13px, 2vw, 15px);
-$addListHeight: 50px;
-$addListMargin: 30px;
-$menuHeight: 60px;
-$brandColor: rgba(6, 255, 168, 0.706);
-$hoveredBrandColor: rgba(6, 255, 168, 0.925);
+@import '@styles/theme.scss';
 
 @mixin inputNames($gridColumns) {
   display: grid;
@@ -26,7 +18,7 @@ $hoveredBrandColor: rgba(6, 255, 168, 0.925);
 
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.566);
-  color: $textColor;
+  color: $defaultTextColor;
   background-color: $bgColor;
   cursor: pointer;
 
