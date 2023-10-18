@@ -1,4 +1,6 @@
 import { FilledButton } from '@components/index';
+import { useTranslation } from 'react-i18next';
+
 import './index.scss';
 
 type AddTaskButtonProps = {
@@ -6,10 +8,12 @@ type AddTaskButtonProps = {
 };
 
 const AddTaskButton: React.FC<AddTaskButtonProps> = ({ onClick }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="add-task-container">
       <div>
-        <FilledButton onClick={onClick}>Add another list</FilledButton>
+        <FilledButton onClick={onClick}>{t('addTask')}</FilledButton>
       </div>
     </div>
   );

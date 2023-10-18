@@ -1,16 +1,19 @@
+import { useTranslation } from 'react-i18next';
 import { links } from './data/data';
 import { LinksENUM } from './data/models';
 import './index.scss';
 
 const Menu = () => {
+  const { t } = useTranslation();
+
   return (
     <nav className="menu">
       <div className="menu__container">
         <p className="menu__header">
-          All images used from <a href="https://unsplash.com/">unsplash</a>
+          {t('imagesFrom')} <a href="https://unsplash.com/">{t('unsplash')}</a>
         </p>
         <div className="menu__links_container">
-          <h4>My github and linkedin pages</h4>
+          <h4>{t('myPages')}</h4>
           <div className="menu__links">
             {Object.keys(links).map((item) => (
               <a

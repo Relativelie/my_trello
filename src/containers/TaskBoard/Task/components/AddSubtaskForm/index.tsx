@@ -4,6 +4,7 @@ import { addSubtask } from '@store/task/slice';
 import { OutlinedButton } from '@components/index';
 
 import './index.scss';
+import { useTranslation } from 'react-i18next';
 
 type AddSubtaskFormProps = {
   taskIndex: number;
@@ -12,8 +13,9 @@ type AddSubtaskFormProps = {
 const AddSubtaskForm: React.FC<AddSubtaskFormProps> = ({ taskIndex }) => {
   const myRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
-  const addTask = (e: string) => {
+  const onAddSubtask = (e: string) => {
     if (
       (e === 'click' || e === 'Enter') &&
       myRef.current !== null &&
@@ -25,16 +27,18 @@ const AddSubtaskForm: React.FC<AddSubtaskFormProps> = ({ taskIndex }) => {
   };
 
   return (
-    <div className="taskOption__adding">
+    <div className="add-subtask-container">
       <input
-        className="taskOption__adding__inputField"
+        className="add-subtask__input"
         aria-label="input task name"
         type="text"
         maxLength={34}
-        onKeyPress={(e) => addTask(e.key)}
+        onKeyPress={(e) => onAddSubtask(e.key)}
         ref={myRef}
       />
-      <OutlinedButton onClick={() => addTask('click')}>Add task</OutlinedButton>
+      <OutlinedButton onClick={() => onAddSubtask('click')}>
+        {t('addSubtask')}
+      </OutlinedButton>
     </div>
   );
 };

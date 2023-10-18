@@ -1,4 +1,4 @@
-@import "../../styles/templates";
+@import '../../styles/templates';
 
 .menu {
   position: relative;
@@ -20,7 +20,12 @@
   color: $textColor;
   font-family: $fontText;
   text-shadow: 0 4px 10px #000000;
+
+  & a {
+    color: white;
+  }
 }
+
 .menu__links_container {
   display: flex;
   justify-content: space-between;
