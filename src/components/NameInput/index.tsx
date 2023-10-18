@@ -13,9 +13,7 @@ const AppNameInput: React.FC<NameInputProps> = ({ onChange, initialValue }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.value = initialValue;
-    }
+    setInitialValue();
   }, [initialValue]);
 
   const validation = (
@@ -26,8 +24,11 @@ const AppNameInput: React.FC<NameInputProps> = ({ onChange, initialValue }) => {
 
     const elem = blurEvent.target as HTMLInputElement;
     const newVal = elem.value;
+
     if (newVal.length && onChange) {
       onChange(newVal);
+    } else {
+      setInitialValue();
     }
 
     hideInput(elem);
@@ -40,6 +41,12 @@ const AppNameInput: React.FC<NameInputProps> = ({ onChange, initialValue }) => {
   const hideInput = (elem: HTMLInputElement) => {
     elem.classList.add('name-input_hideInput');
     elem.blur();
+  };
+
+  const setInitialValue = () => {
+    if (inputRef.current) {
+      inputRef.current.value = initialValue;
+    }
   };
 
   return (

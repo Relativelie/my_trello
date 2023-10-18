@@ -5,15 +5,13 @@ import TaskEntity from './TaskEntity';
 const taskBoardSlice = createSlice<TaskBoardState, TaskBoardReducers>({
   name: 'task board',
   initialState: {
-    tasks: {},
+    tasks: [],
   },
   reducers: {
     addTask: (state) => {
-      const highestNumber = Object.keys(state.tasks).length
-        ? Math.max(...Object.keys(state.tasks).map(Number))
-        : 0;
-      const newTasks = { ...state.tasks };
-      newTasks[highestNumber + 1] = TaskEntity.create();
+      const newTasks = [...state.tasks];
+      newTasks.push(TaskEntity.create());
+
       return {
         ...state,
         tasks: newTasks,
@@ -22,7 +20,7 @@ const taskBoardSlice = createSlice<TaskBoardState, TaskBoardReducers>({
 
     renameTask: (state, action) => {
       const { name, index } = action.payload;
-      const newTasks = { ...state.tasks };
+      const newTasks = [...state.tasks];
       newTasks[index] = TaskEntity.renameTask(state.tasks[index], name);
 
       return {
@@ -32,8 +30,8 @@ const taskBoardSlice = createSlice<TaskBoardState, TaskBoardReducers>({
     },
 
     removeTask: (state, action) => {
-      const newTasks = { ...state.tasks };
-      delete newTasks[action.payload];
+      const newTasks = [...state.tasks];
+      newTasks.splice(action.payload, 1);
 
       return {
         ...state,
@@ -43,7 +41,7 @@ const taskBoardSlice = createSlice<TaskBoardState, TaskBoardReducers>({
 
     removeSubtask: (state, action) => {
       const { taskIndex, subtaskIndex } = action.payload;
-      const newTasks = { ...state.tasks };
+      const newTasks = [...state.tasks];
       newTasks[taskIndex] = TaskEntity.removeSubtask(
         state.tasks[taskIndex],
         subtaskIndex,
@@ -57,7 +55,7 @@ const taskBoardSlice = createSlice<TaskBoardState, TaskBoardReducers>({
 
     renameSubtask: (state, action) => {
       const { name, subtaskIndex, taskIndex } = action.payload;
-      const newTasks = { ...state.tasks };
+      const newTasks = [...state.tasks];
       newTasks[taskIndex] = TaskEntity.renameSubtask(
         state.tasks[taskIndex],
         name,
@@ -72,7 +70,7 @@ const taskBoardSlice = createSlice<TaskBoardState, TaskBoardReducers>({
 
     addSubtask: (state, action) => {
       const { taskIndex, name } = action.payload;
-      const newTasks = { ...state.tasks };
+      const newTasks = [...state.tasks];
       newTasks[taskIndex] = TaskEntity.addSubtask(state.tasks[taskIndex], name);
 
       return {
@@ -82,13 +80,10 @@ const taskBoardSlice = createSlice<TaskBoardState, TaskBoardReducers>({
     },
 
     dragDropTask: (state, action) => {
-      // !!!! что то не правильно
-      const { indexTo, indexFrom } = action.payload;
-      const newTasks = { ...state.tasks };
-      const taskTo = newTasks[indexTo];
-      const taskFrom = newTasks[indexFrom];
-      newTasks[indexTo] = taskFrom;
-      newTasks[indexFrom] = taskTo;
+      const { indexFrom, indexTo } = action.payload;
+      const newTasks = [...state.tasks];
+      const [removed] = newTasks.splice(indexFrom, 1);
+      newTasks.splice(indexTo, 0, removed);
 
       return {
         ...state,
@@ -97,20 +92,14 @@ const taskBoardSlice = createSlice<TaskBoardState, TaskBoardReducers>({
     },
 
     dragDropSubtask: (state, action) => {
-      // !!!! что то не правильно
-      const { toIndexTask, fromIndexTask, toIndexSubtask, fromIndexSubtask } =
+      const { fromIndexTask, fromIndexSubtask, toIndexTask, toIndexSubtask } =
         action.payload;
-      const newTasks = { ...state.tasks };
-      const taskTo = newTasks[toIndexTask];
-      const taskFrom = newTasks[fromIndexTask];
-      const subtaskTo = taskTo.subtasks[toIndexSubtask];
-      const subtaskFrom = taskFrom.subtasks[fromIndexSubtask];
-
-      taskTo.subtasks[toIndexSubtask] = subtaskFrom;
-      taskFrom.subtasks[fromIndexSubtask] = subtaskTo;
-
-      newTasks[toIndexTask] = taskTo;
-      newTasks[fromIndexTask] = taskFrom;
+      const newTasks = [...state.tasks];
+      const [removed] = newTasks[fromIndexTask].subtasks.splice(
+        fromIndexSubtask,
+        1,
+      );
+      newTasks[toIndexTask].subtasks.splice(toIndexSubtask, 0, removed);
 
       return {
         ...state,

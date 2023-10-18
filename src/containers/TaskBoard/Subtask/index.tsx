@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { Draggable } from 'react-beautiful-dnd';
 
 import { AppIconButton } from '@components/index';
+import { ButtonVariantsENUM } from '@components/IconButton/models';
 import Icon from '@assets/icons/Close';
 import { removeSubtask } from '@store/task/slice';
 
@@ -41,6 +42,7 @@ const SubTask: React.FC<SubTaskProps> = ({
           />
           <DraggingIconBtn dragHandleProps={provided.dragHandleProps} />
           <AppIconButton
+            variant={ButtonVariantsENUM.deleting}
             onClick={() => {
               dispatch(removeSubtask({ taskIndex, subtaskIndex }));
             }}

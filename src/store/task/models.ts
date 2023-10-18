@@ -2,9 +2,7 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import TaskEntity from './TaskEntity';
 
 export type TaskBoardState = {
-  tasks: {
-    [key: number]: TaskEntity;
-  };
+  tasks: Array<TaskEntity>;
 };
 
 export type TaskBoardReducers = {

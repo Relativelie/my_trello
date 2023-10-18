@@ -6,7 +6,7 @@
       "@components/*": ["components/*"],
       "@containers/*": ["containers/*"],
       "@hooks/*": ["hooks/*"],
-      "@store/*": ["store_two/*"],
+      "@store/*": ["store/*"],
       "@assets/*": ["assets/*"],
       "@/*": [
         "*"

@@ -16,28 +16,22 @@ export default function TaskBoard() {
 
   const handleOnDragEnd = (e: DropResult) => {
     if (e.destination !== undefined && e.destination !== null) {
-      const toIndexTask = e.destination.index;
-      const fromIndexTask = e.source.index;
+      const indexTo = e.destination.index;
+      const indexFrom = e.source.index;
       if (e.type === 'tasks') {
-        dispatch(
-          dragDropTask({ indexTo: toIndexTask, indexFrom: fromIndexTask }),
-        );
-        // dragDropList(indexTo, indexFrom);
-        // dragDropListWithTasks(indexTo, indexFrom);
+        dispatch(dragDropTask({ indexTo, indexFrom }));
       } else {
-        const fromIndexSubtask = getValueFromStr(e.source.droppableId, 9);
-        const toIndexSubtask = getValueFromStr(e.destination.droppableId, 9);
+        const fromIndexTask = getValueFromStr(e.source.droppableId, 9);
+        const toIndexTask = getValueFromStr(e.destination.droppableId, 9);
 
         dispatch(
           dragDropSubtask({
             toIndexTask,
             fromIndexTask,
-            toIndexSubtask,
-            fromIndexSubtask,
+            toIndexSubtask: indexTo,
+            fromIndexSubtask: indexFrom,
           }),
         );
-
-        // dragDropTasks(listTo, listFrom, indexTo, indexFrom);
       }
     }
   };

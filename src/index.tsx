@@ -5,7 +5,7 @@ import App from './containers/app/App';
 // import { store } from './store';
 
 import './styles/index.scss';
-import store from './store_two/store_two';
+import store from './store/store';
 
 ReactDOM.render(
   <React.StrictMode>

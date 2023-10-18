@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 
 import { AppIconButton } from '@components/index';
+import { ButtonVariantsENUM } from '@components/IconButton/models';
 import { removeTask } from '@store/task/slice';
 import Icon from '@assets/icons/Close';
 
@@ -31,6 +32,7 @@ const Task: React.FC<TaskProps> = ({ children, index, title }) => {
             <div className="task_actions-container">
               <TaskTitle title={title} index={index} />
               <AppIconButton
+                variant={ButtonVariantsENUM.deleting}
                 onClick={() => {
                   dispatch(removeTask(index));
                 }}

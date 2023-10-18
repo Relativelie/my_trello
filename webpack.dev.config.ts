@@ -60,7 +60,7 @@ const config: Configuration = {
       '@components': path.resolve(__dirname, 'src/components/'),
       '@containers': path.resolve(__dirname, 'src/containers/'),
       '@hooks': path.resolve(__dirname, 'src/hooks/'),
-      '@store': path.resolve(__dirname, 'src/store_two/'),
+      '@store': path.resolve(__dirname, 'src/store/'),
       '@assets': path.resolve(__dirname, 'src/assets/'),
     },
     extensions: ['.tsx', '.ts', '.js'],

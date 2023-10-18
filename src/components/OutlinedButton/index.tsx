@@ -1,3 +1,5 @@
+import './index.scss';
+
 type OutlinedButtonProps = {
   onClick: () => void;
   children: React.ReactNode;

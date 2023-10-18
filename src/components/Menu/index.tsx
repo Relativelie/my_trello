@@ -1,25 +1,33 @@
+import { links } from './data/data';
+import { LinksENUM } from './data/models';
 import './index.scss';
 
 const Menu = () => {
   return (
     <nav className="menu">
       <div className="menu__container">
-        <h3 className="menu__header">World of GuRepio planners</h3>
-        <ul className="menu__elements">
-          <li className="menu__elements__item">There could be a menu</li>
-          <li className="menu__elements__item">
-            <address>
+        <p className="menu__header">
+          All images used from <a href="https://unsplash.com/">unsplash</a>
+        </p>
+        <div className="menu__links_container">
+          <h4>My github and linkedin pages</h4>
+          <div className="menu__links">
+            {Object.keys(links).map((item) => (
               <a
-                className="menu__elements__item menu__elements__anchor"
+                key={links[item as unknown as LinksENUM].link}
                 target="_blank"
+                className="underline"
                 rel="noreferrer"
-                href="https://github.com/Relativelie?tab=repositories"
+                href={links[item as unknown as LinksENUM].link}
               >
-                Go to github
+                <img
+                  src={links[item as unknown as LinksENUM].image}
+                  alt={item}
+                />
               </a>
-            </address>
-          </li>
-        </ul>
+            ))}
+          </div>
+        </div>
       </div>
     </nav>
   );

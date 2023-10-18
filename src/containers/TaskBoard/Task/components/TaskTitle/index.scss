@@ -7,9 +7,10 @@
 .task-title {
   grid-area: name;
 
-  & p {
+  & h3 {
     font-size: $listTextSize;
     font-family: $fontText;
+    font-weight: bold;
     color: $textColor;
   }
 }

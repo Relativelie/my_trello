@@ -20,7 +20,7 @@ const TaskTitle: React.FC<TaskTitleProps> = ({ title, index }) => {
   return (
     <div className="task-title-container">
       <div className="task-title">
-        <p>{title}</p>
+        <h3>{title}</h3>
       </div>
       <AppNameInput initialValue={title} onChange={onChange} />
     </div>
