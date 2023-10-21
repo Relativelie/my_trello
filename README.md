@@ -18,13 +18,16 @@ This project is a simple web application for managing tasks, inspired by Trello 
 
 React - Redux - Typescript - SCSS - Webpack - react-beautiful-dnd
 
-## Installation and Usage
-
-1. Clone the repository to your local machine.
-2. Install dependencies with `npm install`.
-3. Start the application with `npm start`.
 
 ## Short video review
 
 
 https://github.com/Relativelie/my_trello/assets/59819426/793f4528-4a83-4e44-b379-1d212ef59246
+
+
+
+## Installation and Usage
+
+1. Clone the repository to your local machine.
+2. Install dependencies with `npm install`.
+3. Start the application with `npm start`.
