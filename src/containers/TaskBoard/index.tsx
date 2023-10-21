@@ -65,6 +65,7 @@ export default function TaskBoard() {
                   >
                     {tasks[taskIndex].subtasks.map((item, index) => (
                       <SubTask
+                        key={`${item}-${index}}`}
                         taskIndex={taskIndex}
                         subtaskIndex={index}
                         title={item}
