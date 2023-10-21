@@ -1,7 +1,0 @@
-@import '@styles/templates.scss';
-
-.task-container {
-  display: flex;
-  width: 110%;
-  height: calc(100vh - ($addListMargin + $addListHeight + $menuHeight));
-}
