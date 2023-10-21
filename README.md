@@ -1,34 +1,27 @@
-# Planner
+# Trello-Like Task Manager Project
 
-In this planner you can create lists/tasks, move them around, add lists/tasks, rename them and delete
+**Online demo**: https://relativelie.github.io/my_trello/
 
-Online demo: https://relativelie.github.io/my_trello/
+This project is a simple web application for managing tasks, inspired by Trello but with a simplified feature set. In this app, you can organize your tasks by creating and adding subtasks. Subtasks can be freely moved within tasks, as well as between different tasks. You can also rearrange the order of tasks and subtasks, and delete or rename them.
 
-Used:
+## Features
 
-- typescript
-- react
-- redux
-- scss
-- react-beautiful-dnd
-- jest tests
+- Create and manage tasks.
+- Add and manage subtasks.
+- Move subtasks between tasks.
+- Rearrange tasks and subtasks within a task.
+- Change the order of tasks and subtasks.
+- Delete tasks and subtasks.
+- Rename tasks and subtasks.
 
-## How to build
+## Installation and Usage
 
-1. Clone repository
-   `git clone git@github.com:Relativelie/my_trello.git /path/to/map`
-   `cd  /path/to/map `
-2. Install dependencies
-   `npm install `
-3. Build project
-   `npm run deploy`
+1. Clone the repository to your local machine.
+2. Install dependencies with `npm install`.
+3. Start the application with `npm start`.
 
-## How to start
+## Technologies Used
 
-1. Run project
-   `npm start `
+React - Redux - Typescript - SCSS - Webpack - react-beautiful-dnd
 
-## How to test
-
-1. Running tests with:
-   ` npm test`
+## Short video review
